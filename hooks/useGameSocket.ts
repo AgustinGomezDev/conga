@@ -11,7 +11,8 @@ const initialGameState: GameState = {
   maxPlayers: 2,
   error: '',
   isGameStarted: false,
-  playerIndex: -1
+  playerIndex: -1,
+  lastPlayedCard: null
 };
 
 export const useGameSocket = () => {
@@ -60,9 +61,17 @@ export const useGameSocket = () => {
         ...prev,
         turn: gs.currentTurn,
         playersCount: gs.playersCount,
-        isGameStarted: gs.isGameActive
+        isGameStarted: gs.isGameActive,
+        lastPlayedCard: gs.lastPlayedCard
       }));
     });
+
+    newSocket.on('cardPlayed', (props) => {
+      setGameState(prev => ({
+        ...prev,
+        lastPlayedCard: props.lastPlayedCard
+      }))
+    })
 
     newSocket.on('turn', (turn) => {
       setGameState(prev => ({ ...prev, turn }));
@@ -126,11 +135,29 @@ export const useGameSocket = () => {
     socket.emit('drawCard');
   }, [socket, gameState.turn, gameState.playerIndex, gameState.isGameStarted]);
 
+  const handleDrawLastPlayedCard = useCallback(() => {
+    if (!socket || !gameState.isGameStarted) return;
+    if (gameState.turn !== gameState.playerIndex) {
+      setGameState(prev => ({
+        ...prev,
+        error: 'No es tu turno para robar carta.'
+      }));
+      return;
+    } 
+
+    socket.emit('drawLastPlayedCard')
+    setGameState(prev => ({
+      ...prev,
+      lastPlayedCard: null
+    }))
+  }, [socket, gameState.turn, gameState.playerIndex, gameState.isGameStarted])
+
   return {
     gameState,
     handleCreateGame,
     handleJoinGame,
     handlePlayCard,
-    handleDrawCard
+    handleDrawCard,
+    handleDrawLastPlayedCard
   };
 };

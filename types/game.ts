@@ -13,4 +13,5 @@ export interface GameState {
   error: string;
   isGameStarted: boolean;
   playerIndex: number;
+  lastPlayedCard: Card | null;
 }
