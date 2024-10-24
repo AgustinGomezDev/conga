@@ -152,12 +152,27 @@ export const useGameSocket = () => {
     }))
   }, [socket, gameState.turn, gameState.playerIndex, gameState.isGameStarted])
 
+  const handleEndGame = useCallback((closingCard: object, combinedCards: object[][], leftOverCard: object) => {
+    if (!socket || !gameState.isGameStarted) return;
+
+    if (gameState.turn !== gameState.playerIndex) {
+      setGameState(prev => ({
+        ...prev,
+        error: 'No es tu turno, inténtalo luego.'
+      }));
+      return;
+    } 
+
+    socket.emit('endGame', closingCard, combinedCards, leftOverCard)
+  }, [socket, gameState.turn, gameState.playerIndex, gameState.isGameStarted])
+
   return {
     gameState,
     handleCreateGame,
     handleJoinGame,
     handlePlayCard,
     handleDrawCard,
-    handleDrawLastPlayedCard
+    handleDrawLastPlayedCard,
+    handleEndGame
   };
 };

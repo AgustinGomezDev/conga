@@ -6,15 +6,24 @@ import { Card } from '@/types/game';
 interface PlayerHandProps {
   cards: Card[];
   onPlayCard: (cardId: number) => void;
+  mode: 'playing' | 'ending'
 }
 
-export const PlayerHand: FC<PlayerHandProps> = ({ cards, onPlayCard }) => {
+export const PlayerHand: FC<PlayerHandProps> = ({ cards, onPlayCard, mode }) => {
+  const buttonCn = mode === 'playing'
+    ? "transform hover:scale-105 transition-transform"
+    : "";
+
+  const imageCn = mode === 'playing'
+    ? "h-80"
+    : "h-52"
+
   return (
     <ul className="flex flex-wrap gap-4">
       {cards.map((card) => (
         <li key={card.id}>
           <button
-            className="transform hover:scale-105 transition-transform"
+            className={buttonCn}
             onClick={() => onPlayCard(card.id)}
           >
             {card.suit === 'comodin' ? (
@@ -24,7 +33,7 @@ export const PlayerHand: FC<PlayerHandProps> = ({ cards, onPlayCard }) => {
                 height={200}
                 src="/cards/otra/tapa.png"
                 alt="Carta comodín"
-                className="rounded-lg shadow-lg"
+                className={`rounded-lg shadow-lg w-auto ${imageCn}`}
               />
             ) : (
               <Image
@@ -33,7 +42,7 @@ export const PlayerHand: FC<PlayerHandProps> = ({ cards, onPlayCard }) => {
                 height={200}
                 src={`/cards/${card.suit}/${card.value}.png`}
                 alt={`Carta ${card.value} de ${card.suit}`}
-                className="rounded-lg shadow-lg"
+                className={`rounded-lg shadow-lg w-auto ${imageCn}`}
               />
             )}
           </button>

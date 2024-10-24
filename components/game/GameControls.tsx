@@ -1,12 +1,16 @@
 'use client'
 import { FC } from 'react';
+import EndGameControls from './EndGameControls';
+import { GameState, Card } from '@/types/game';
 
 interface GameControlsProps {
   onCreateGame: (maxPlayers: number) => void;
   onJoinGame: () => void;
+  onEndGame: (closingCard: Card | null, combinedCards: Card[][], leftOverCard: Card | null) => void;
+  gameState: GameState;
 }
 
-export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame }) => {
+export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, onEndGame, gameState }) => {
   return (
     <div className="mb-4 space-x-4">
       <button
@@ -21,6 +25,7 @@ export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame }
       >
         Unirse a Juego
       </button>
+      <EndGameControls gameState={gameState} onEndGame={onEndGame} />
     </div>
   );
 };

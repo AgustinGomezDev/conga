@@ -12,7 +12,8 @@ export default function Home() {
     handleJoinGame,
     handlePlayCard,
     handleDrawCard,
-    handleDrawLastPlayedCard
+    handleDrawLastPlayedCard,
+    handleEndGame
   } = useGameSocket();
 
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <GameControls
         onCreateGame={handleCreateGame}
         onJoinGame={handleJoinGame}
+        onEndGame={handleEndGame}
+        gameState={gameState}
       />
       <GameInfo gameState={gameState} />
       <div className='flex flex-col items-center gap-5'>
@@ -32,6 +35,7 @@ export default function Home() {
         <PlayerHand
           cards={gameState.hand}
           onPlayCard={handlePlayCard}
+          mode='playing'
         />
       </div>
     </div>

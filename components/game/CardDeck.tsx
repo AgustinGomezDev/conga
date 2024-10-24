@@ -14,7 +14,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
   if (!isGameStarted) return null;
 
   return (
-    <div>
+    <div className='flex gap-5'>
       <button onClick={onDrawCard}>
         <Image
           loading="lazy"
