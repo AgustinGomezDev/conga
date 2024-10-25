@@ -6,7 +6,7 @@ import { GameState, Card } from '@/types/game';
 interface GameControlsProps {
   onCreateGame: (maxPlayers: number) => void;
   onJoinGame: () => void;
-  onEndGame: (closingCard: Card | null, combinedCards: Card[][], leftOverCard: Card | null) => void;
+  onEndGame: (closingCard: Card, combinedCards: Card[][], leftOverCard?: Card | null) => void;
   gameState: GameState;
 }
 

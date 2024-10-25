@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react';
 import { io, Socket } from 'socket.io-client';
-import { GameState } from '@/types/game';
+import { GameState, Card } from '@/types/game';
 
 const initialGameState: GameState = {
   hand: [],
@@ -81,6 +81,17 @@ export const useGameSocket = () => {
       setGameState(prev => ({ ...prev, error }));
     });
 
+    newSocket.on('gameEnded', (gs) => {
+      console.log('hola')
+      setGameState(prev => ({
+        ...prev,
+        turn: gs.currentTurn,
+        playersCount: gs.playersCount,
+        isGameStarted: gs.isGameActive,
+        lastPlayedCard: gs.lastPlayedCard
+      }));
+    })
+
     newSocket.on('playerDisconnected', ({ message }) => {
       setGameState(prev => ({
         ...prev,
@@ -152,7 +163,7 @@ export const useGameSocket = () => {
     }))
   }, [socket, gameState.turn, gameState.playerIndex, gameState.isGameStarted])
 
-  const handleEndGame = useCallback((closingCard: object, combinedCards: object[][], leftOverCard: object) => {
+  const handleEndGame = useCallback((closingCard: Card, combinedCards: Card[][], leftOverCard?: Card | null) => {
     if (!socket || !gameState.isGameStarted) return;
 
     if (gameState.turn !== gameState.playerIndex) {
