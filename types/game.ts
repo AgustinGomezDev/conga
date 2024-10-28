@@ -14,4 +14,5 @@ export interface GameState {
   isGameStarted: boolean;
   playerIndex: number;
   lastPlayedCard: Card | null;
+  endGameModal: boolean;
 }

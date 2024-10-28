@@ -12,7 +12,8 @@ const initialGameState: GameState = {
   error: '',
   isGameStarted: false,
   playerIndex: -1,
-  lastPlayedCard: null
+  lastPlayedCard: null,
+  endGameModal: false
 };
 
 export const useGameSocket = () => {
@@ -82,7 +83,6 @@ export const useGameSocket = () => {
     });
 
     newSocket.on('gameEnded', (gs) => {
-      console.log('hola')
       setGameState(prev => ({
         ...prev,
         turn: gs.currentTurn,
@@ -90,6 +90,13 @@ export const useGameSocket = () => {
         isGameStarted: gs.isGameActive,
         lastPlayedCard: gs.lastPlayedCard
       }));
+    })
+
+    newSocket.on('getOtherPlayersPoints', () => {
+      setGameState(prev => ({
+        ...prev,
+        endGameModal: true
+      }))
     })
 
     newSocket.on('playerDisconnected', ({ message }) => {
@@ -154,7 +161,7 @@ export const useGameSocket = () => {
         error: 'No es tu turno para robar carta.'
       }));
       return;
-    } 
+    }
 
     socket.emit('drawLastPlayedCard')
     setGameState(prev => ({
@@ -172,7 +179,7 @@ export const useGameSocket = () => {
         error: 'No es tu turno, inténtalo luego.'
       }));
       return;
-    } 
+    }
 
     socket.emit('endGame', closingCard, combinedCards, leftOverCard)
   }, [socket, gameState.turn, gameState.playerIndex, gameState.isGameStarted])
