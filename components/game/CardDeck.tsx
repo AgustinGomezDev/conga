@@ -22,7 +22,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
           height={200}
           src="/cards/otra/tapa.png"
           alt="Carta comodín"
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg h-80 w-auto"
         />
       </button>
       {lastPlayedCard === null || lastPlayedCard === undefined ? null :
@@ -34,7 +34,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
               height={200}
               src="/cards/otra/tapa.png"
               alt="Carta comodín"
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg h-80 w-auto"
             />
           </button>
         ) : (
@@ -45,7 +45,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
               height={200}
               src={`/cards/${lastPlayedCard.suit}/${lastPlayedCard.value}.png`}
               alt={`Carta ${lastPlayedCard.value} de ${lastPlayedCard.suit}`}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg h-80 w-auto"
             />
           </button>
         )
