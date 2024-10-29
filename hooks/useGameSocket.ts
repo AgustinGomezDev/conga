@@ -184,6 +184,12 @@ export const useGameSocket = () => {
     socket.emit('endGame', closingCard, combinedCards, leftOverCard)
   }, [socket, gameState.turn, gameState.playerIndex, gameState.isGameStarted])
 
+  const handleOtherPlayersCards = useCallback((leftOverCards?: Card[] | null, combinedCards?: Card[][] | null) => {
+    if (!socket) return;
+
+    socket.emit('otherPlayersCards', leftOverCards, combinedCards)
+  }, [socket, gameState.isGameStarted])
+
   return {
     gameState,
     handleCreateGame,
@@ -191,6 +197,7 @@ export const useGameSocket = () => {
     handlePlayCard,
     handleDrawCard,
     handleDrawLastPlayedCard,
-    handleEndGame
+    handleEndGame,
+    handleOtherPlayersCards
   };
 };

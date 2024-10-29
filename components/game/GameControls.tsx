@@ -7,10 +7,11 @@ interface GameControlsProps {
   onCreateGame: (maxPlayers: number) => void;
   onJoinGame: () => void;
   onEndGame: (closingCard: Card, combinedCards: Card[][], leftOverCard?: Card | null) => void;
+  onOtherPlayersCards: (leftOverCards?: Card[] | null, combinedCards?: Card[][] | null) => void;
   gameState: GameState;
 }
 
-export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, onEndGame, gameState }) => {
+export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, onEndGame, onOtherPlayersCards, gameState }) => {
   return (
     <div className="mb-4 space-x-4">
       <button
@@ -25,7 +26,7 @@ export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, 
       >
         Unirse a Juego
       </button>
-      <EndGameControls gameState={gameState} onEndGame={onEndGame} />
+      <EndGameControls gameState={gameState} onEndGame={onEndGame} onOtherPlayersCards={onOtherPlayersCards} />
     </div>
   );
 };

@@ -16,9 +16,10 @@ import CardComponent from './CardComponent';
 interface EndGameProps {
     gameState: GameState;
     onEndGame: (closingCard: Card, combinedCards: Card[][], leftOverCard?: Card | null) => void;
+    onOtherPlayersCards: (leftOverCards?: Card[] | null, combinedCards?: Card[][] | null) => void;
 }
 
-const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame }) => {
+const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayersCards }) => {
     const [selectedCard, setSelectedCard] = useState<Card | null>(null)
     const [closingCard, setClosingCard] = useState<Card | null>(null)
     const [leftOverCard, setLeftOverCard] = useState<Card | null>(null)
@@ -58,7 +59,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame }) => {
                 } else {
                     setLeftOverCards(prev => {
                         const newLeftOverCards = prev ? [...prev] : []
-                        if(selectedCard) newLeftOverCards.push(selectedCard)
+                        if (selectedCard) newLeftOverCards.push(selectedCard)
                         return newLeftOverCards;
                     });
                 }
@@ -96,7 +97,19 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame }) => {
         setSelectedCard(null)
     }
 
+    const handleDrawerClose = () => {
+        setSelectedCard(null)
+        setClosingCard(null)
+        setLeftOverCard(null)
+        setLeftOverCards([])
+        setCombinedCards([[], []])
+    }
 
+    const handleOtherPlayersCards = () => {
+        if(leftOverCards || combinedCards){
+            onOtherPlayersCards(leftOverCards, combinedCards)
+        }
+    }
 
     const filteredHand = gameState.hand.filter(card =>
         card !== closingCard &&
@@ -111,6 +124,12 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame }) => {
             <Drawer open={true}>
                 <DrawerContent>
                     <div className="w-full relative">
+                        <button
+                            className="bg-red-500 text-white px-4 py-2 rounded absolute top-0 right-0 mr-10"
+                            onClick={handleOtherPlayersCards}
+                        >
+                            Enviar cartas
+                        </button>
                         <DrawerHeader>
                             <DrawerTitle>Ordena tus cartas para poder sumar los puntos</DrawerTitle>
                             <DrawerDescription>Cartas sobrantes y combinaciones de juegos.</DrawerDescription>
@@ -138,7 +157,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame }) => {
     }
 
     return (
-        <Drawer>
+        <Drawer onClose={handleDrawerClose}>
             <DrawerTrigger asChild>
                 <button
                     className="bg-red-500 text-white px-4 py-2 rounded"

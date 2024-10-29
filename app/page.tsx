@@ -13,7 +13,8 @@ export default function Home() {
     handlePlayCard,
     handleDrawCard,
     handleDrawLastPlayedCard,
-    handleEndGame
+    handleEndGame,
+    handleOtherPlayersCards
   } = useGameSocket();
 
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         onCreateGame={handleCreateGame}
         onJoinGame={handleJoinGame}
         onEndGame={handleEndGame}
+        onOtherPlayersCards={handleOtherPlayersCards}
         gameState={gameState}
       />
       <GameInfo gameState={gameState} />
