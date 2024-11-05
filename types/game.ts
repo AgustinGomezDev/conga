@@ -15,4 +15,5 @@ export interface GameState {
   playerIndex: number;
   lastPlayedCard: Card | null;
   endGameModal: boolean;
+  scoreBoard: { [key: string]: number[] };
 }

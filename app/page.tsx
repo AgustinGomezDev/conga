@@ -4,6 +4,7 @@ import { GameInfo } from '@/components/game/GameInfo';
 import { CardDeck } from '@/components/game/CardDeck';
 import { PlayerHand } from '@/components/game/PlayerHand';
 import { useGameSocket } from '@/hooks/useGameSocket';
+import Scoreboard from '@/components/game/Scoreboard';
 
 export default function Home() {
   const {
@@ -26,6 +27,7 @@ export default function Home() {
         onOtherPlayersCards={handleOtherPlayersCards}
         gameState={gameState}
       />
+      {gameState.scoreBoard && <Scoreboard scores={gameState.scoreBoard} />}
       <GameInfo gameState={gameState} />
       <div className='flex flex-col items-center gap-5'>
         <CardDeck

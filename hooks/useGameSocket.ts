@@ -13,7 +13,8 @@ const initialGameState: GameState = {
   isGameStarted: false,
   playerIndex: -1,
   lastPlayedCard: null,
-  endGameModal: false
+  endGameModal: false,
+  scoreBoard: {}
 };
 
 export const useGameSocket = () => {
@@ -42,13 +43,14 @@ export const useGameSocket = () => {
       }));
     });
 
-    newSocket.on('gameStarted', ({ hand, playerIndex, gameId }) => {
+    newSocket.on('gameStarted', ({ hand, playerIndex, gameId, scoreBoard }) => {
       setGameState(prev => ({
         ...prev,
         hand,
         gameId,
         playerIndex,
         isGameStarted: true,
+        scoreBoard,
         error: 'El juego ha comenzado!'
       }));
     });
@@ -88,7 +90,8 @@ export const useGameSocket = () => {
         turn: gs.currentTurn,
         playersCount: gs.playersCount,
         isGameStarted: gs.isGameActive,
-        lastPlayedCard: gs.lastPlayedCard
+        lastPlayedCard: gs.lastPlayedCard,
+        scoreBoard: gs.scoreBoard
       }));
     })
 

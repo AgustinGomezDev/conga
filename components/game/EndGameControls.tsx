@@ -25,6 +25,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     const [leftOverCard, setLeftOverCard] = useState<Card | null>(null)
     const [leftOverCards, setLeftOverCards] = useState<Card[]>([])
     const [combinedCards, setCombinedCards] = useState<Card[][]>([[], []])
+    const [isOpen, setIsOpen] = useState<boolean>(true)
 
     const handleEndGame = () => {
         if (closingCard && combinedCards) {
@@ -108,6 +109,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     const handleOtherPlayersCards = () => {
         if(leftOverCards || combinedCards){
             onOtherPlayersCards(leftOverCards, combinedCards)
+            setIsOpen(!isOpen)
         }
     }
 
@@ -121,7 +123,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
 
     if (gameState.endGameModal) {
         return (
-            <Drawer open={true}>
+            <Drawer open={isOpen}>
                 <DrawerContent>
                     <div className="w-full relative">
                         <button
