@@ -26,6 +26,7 @@ export default function Home() {
         onEndGame={handleEndGame}
         onOtherPlayersCards={handleOtherPlayersCards}
         gameState={gameState}
+        isGameStarted={gameState.isGameStarted}
       />
       {gameState.scoreBoard && <Scoreboard scores={gameState.scoreBoard} />}
       <GameInfo gameState={gameState} />
