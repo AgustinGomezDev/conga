@@ -1,5 +1,4 @@
 # La Conga
-proximámente
 
 ---
 
