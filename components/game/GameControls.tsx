@@ -8,16 +8,18 @@ interface GameControlsProps {
   onJoinGame: () => void;
   onEndGame: (closingCard: Card, combinedCards: Card[][], leftOverCard?: Card | null) => void;
   onOtherPlayersCards: (leftOverCards?: Card[] | null, combinedCards?: Card[][] | null) => void;
+  onReDealCards: (gameId: number) => void;
   isGameStarted: boolean;
+  isGamePaused: boolean;
   gameState: GameState;
 }
 
-export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, onEndGame, onOtherPlayersCards, isGameStarted, gameState }) => {
+export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, onEndGame, onOtherPlayersCards, onReDealCards, isGameStarted, isGamePaused, gameState }) => {
   return (
     <div className="mb-4 space-x-4">
       {
         isGameStarted
-          ? <EndGameControls gameState={gameState} onEndGame={onEndGame} onOtherPlayersCards={onOtherPlayersCards} />
+          ? <EndGameControls gameState={gameState} onEndGame={onEndGame} onOtherPlayersCards={onOtherPlayersCards} onReDealCards={onReDealCards} isGamePaused={isGamePaused} />
           :
           <>
             <button

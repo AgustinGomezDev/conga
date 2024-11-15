@@ -7,11 +7,12 @@ interface CardDeckProps {
   onDrawCard: () => void;
   onDrawLastPlayedCard: () => void;
   isGameStarted: boolean;
+  isGamePaused: boolean;
   lastPlayedCard: Card | null;
 }
 
-export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, isGameStarted, lastPlayedCard }) => {
-  if (!isGameStarted) return null;
+export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, isGameStarted, isGamePaused, lastPlayedCard }) => {
+  if (!isGameStarted || isGamePaused) return null;
 
   return (
     <div className='flex gap-5'>

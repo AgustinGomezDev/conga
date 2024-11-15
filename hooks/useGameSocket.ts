@@ -11,6 +11,7 @@ const initialGameState: GameState = {
   maxPlayers: 2,
   error: '',
   isGameStarted: false,
+  isGamePaused: false,
   playerIndex: -1,
   lastPlayedCard: null,
   endGameModal: false,
@@ -64,7 +65,7 @@ export const useGameSocket = () => {
         ...prev,
         turn: gs.currentTurn,
         playersCount: gs.playersCount,
-        isGameStarted: gs.isGameActive,
+        isGameStarted: gs.isGameStarted,
         lastPlayedCard: gs.lastPlayedCard
       }));
     });
@@ -89,10 +90,20 @@ export const useGameSocket = () => {
         ...prev,
         turn: gs.currentTurn,
         playersCount: gs.playersCount,
-        isGameStarted: gs.isGameActive,
+        isGameStarted: gs.isGameStarted,
+        isGamePaused: gs.isGamePaused,
         lastPlayedCard: gs.lastPlayedCard,
         scoreBoard: gs.scoreBoard
       }));
+    })
+
+    newSocket.on('resetGame', (gs) => {
+      setGameState(prev => ({
+        ...prev,
+        turn: gs.currentTurn,
+        isGamePaused: gs.isGamePaused,
+        endGameModal: false
+      }))
     })
 
     newSocket.on('getOtherPlayersPoints', () => {
@@ -193,6 +204,12 @@ export const useGameSocket = () => {
     socket.emit('otherPlayersCards', leftOverCards, combinedCards)
   }, [socket, gameState.isGameStarted])
 
+  const handleReDealCards = useCallback((gameId: number) => {
+    if (!socket) return;
+
+    socket.emit('reDealCards', gameId)
+  }, [socket])
+
   return {
     gameState,
     handleCreateGame,
@@ -201,6 +218,7 @@ export const useGameSocket = () => {
     handleDrawCard,
     handleDrawLastPlayedCard,
     handleEndGame,
-    handleOtherPlayersCards
+    handleOtherPlayersCards,
+    handleReDealCards
   };
 };

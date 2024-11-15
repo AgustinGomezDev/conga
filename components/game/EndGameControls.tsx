@@ -17,9 +17,11 @@ interface EndGameProps {
     gameState: GameState;
     onEndGame: (closingCard: Card, combinedCards: Card[][], leftOverCard?: Card | null) => void;
     onOtherPlayersCards: (leftOverCards?: Card[] | null, combinedCards?: Card[][] | null) => void;
+    onReDealCards: (gameId: number) => void;
+    isGamePaused: boolean;
 }
 
-const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayersCards }) => {
+const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayersCards, onReDealCards, isGamePaused }) => {
     const [selectedCard, setSelectedCard] = useState<Card | null>(null)
     const [closingCard, setClosingCard] = useState<Card | null>(null)
     const [leftOverCard, setLeftOverCard] = useState<Card | null>(null)
@@ -36,6 +38,13 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     const handleCardEvent = (e: any) => {
         const card = gameState.hand.find(element => element.id === e)
         if (card) setSelectedCard(card)
+    }
+
+    const handleReDealCards = () => {
+        if(gameState.gameId){
+            onReDealCards(gameState.gameId)
+            setIsOpen(true)
+        }
     }
 
     const handleCardSlot = (e: any) => {
@@ -107,7 +116,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     }
 
     const handleOtherPlayersCards = () => {
-        if(leftOverCards || combinedCards){
+        if (leftOverCards || combinedCards) {
             onOtherPlayersCards(leftOverCards, combinedCards)
             setIsOpen(!isOpen)
         }
@@ -159,48 +168,52 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     }
 
     return (
-        <Drawer onClose={handleDrawerClose}>
-            <DrawerTrigger asChild>
-                <button
-                    className="bg-red-500 text-white px-4 py-2 rounded"
-                >
-                    Cortar
-                </button>
-            </DrawerTrigger>
-            <DrawerContent>
-                <div className="w-full relative">
+        <>
+            <Drawer onClose={handleDrawerClose}>
+                <DrawerTrigger asChild>
                     <button
-                        className="bg-red-500 text-white px-4 py-2 rounded absolute top-0 right-0 mr-10"
-                        onClick={handleEndGame}
+                        className="bg-red-500 text-white px-4 py-2 rounded"
                     >
                         Cortar
                     </button>
-                    <DrawerHeader>
-                        <DrawerTitle>Ordena tus cartas para poder cortar</DrawerTitle>
-                        <DrawerDescription>Carta con la que se corta, carta sobrante y combinaciones de juegos.</DrawerDescription>
-                    </DrawerHeader>
-                    <div>
-                        <div className='p-4 w-full flex items-center gap-4'>
-                            <div className='bg-gray-300 h-52 w-36 grid place-content-center rounded-lg' id='closingCard' onClick={handleCardSlot}>
-                                {closingCard ? <CardComponent card={closingCard} mode='ending' /> : <span className='text-black text-center px-2'>Carta con la que se corta</span>}
+                </DrawerTrigger>
+                <DrawerContent>
+                    <div className="w-full relative">
+                        <button
+                            className="bg-red-500 text-white px-4 py-2 rounded absolute top-0 right-0 mr-10"
+                            onClick={handleEndGame}
+                        >
+                            Cortar
+                        </button>
+                        <DrawerHeader>
+                            <DrawerTitle>Ordena tus cartas para poder cortar</DrawerTitle>
+                            <DrawerDescription>Carta con la que se corta, carta sobrante y combinaciones de juegos.</DrawerDescription>
+                        </DrawerHeader>
+                        <div>
+                            <div className='p-4 w-full flex items-center gap-4'>
+                                <div className='bg-gray-300 h-52 w-36 grid place-content-center rounded-lg' id='closingCard' onClick={handleCardSlot}>
+                                    {closingCard ? <CardComponent card={closingCard} mode='ending' /> : <span className='text-black text-center px-2'>Carta con la que se corta</span>}
+                                </div>
+                                <div className='bg-gray-300 h-52 w-36 grid place-content-center rounded-lg' id='leftOverCard' onClick={handleCardSlot}>
+                                    {leftOverCard ? <CardComponent card={leftOverCard} mode='ending' /> : <span className='text-black text-center px-2'>Carta sobrante</span>}
+                                </div>
+                                <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
+                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <CardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} mode='ending' />) : <span className='text-black text-center px-2'>Juego 1</span>}
+                                </div>
+                                <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
+                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <CardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} mode='ending' />) : <span className='text-black text-center px-2'>Juego 2</span>}
+                                </div>
                             </div>
-                            <div className='bg-gray-300 h-52 w-36 grid place-content-center rounded-lg' id='leftOverCard' onClick={handleCardSlot}>
-                                {leftOverCard ? <CardComponent card={leftOverCard} mode='ending' /> : <span className='text-black text-center px-2'>Carta sobrante</span>}
+                            <div className='p-4 w-full flex justify-center items-center'>
+                                {gameState ? gameState.hand && <PlayerHand cards={filteredHand} mode='ending' onPlayCard={handleCardEvent} /> : null}
                             </div>
-                            <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
-                                {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <CardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} mode='ending' />) : <span className='text-black text-center px-2'>Juego 1</span>}
-                            </div>
-                            <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
-                                {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <CardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} mode='ending' />) : <span className='text-black text-center px-2'>Juego 2</span>}
-                            </div>
-                        </div>
-                        <div className='p-4 w-full flex justify-center items-center'>
-                            {gameState ? gameState.hand && <PlayerHand cards={filteredHand} mode='ending' onPlayCard={handleCardEvent} /> : null}
                         </div>
                     </div>
-                </div>
-            </DrawerContent>
-        </Drawer>
+                </DrawerContent>
+            </Drawer>
+            {isGamePaused ? <button className="bg-yellow-500 text-white px-4 py-2 rounded" onClick={handleReDealCards}>Repartir cartas</button> : null }
+        </>
+
     )
 }
 

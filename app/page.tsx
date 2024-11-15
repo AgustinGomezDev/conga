@@ -15,7 +15,8 @@ export default function Home() {
     handleDrawCard,
     handleDrawLastPlayedCard,
     handleEndGame,
-    handleOtherPlayersCards
+    handleOtherPlayersCards,
+    handleReDealCards
   } = useGameSocket();
 
   return (
@@ -27,6 +28,8 @@ export default function Home() {
         onOtherPlayersCards={handleOtherPlayersCards}
         gameState={gameState}
         isGameStarted={gameState.isGameStarted}
+        isGamePaused={gameState.isGamePaused}
+        onReDealCards={handleReDealCards}
       />
       {gameState.scoreBoard && <Scoreboard scores={gameState.scoreBoard} />}
       <GameInfo gameState={gameState} />
@@ -35,6 +38,7 @@ export default function Home() {
           onDrawCard={handleDrawCard}
           onDrawLastPlayedCard={handleDrawLastPlayedCard}
           isGameStarted={gameState.isGameStarted}
+          isGamePaused={gameState.isGamePaused}
           lastPlayedCard={gameState.lastPlayedCard}
         />
         <PlayerHand

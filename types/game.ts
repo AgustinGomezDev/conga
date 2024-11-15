@@ -12,6 +12,7 @@ export interface GameState {
   maxPlayers: number;
   error: string;
   isGameStarted: boolean;
+  isGamePaused: boolean;
   playerIndex: number;
   lastPlayedCard: Card | null;
   endGameModal: boolean;
