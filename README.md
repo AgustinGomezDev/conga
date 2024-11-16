@@ -8,7 +8,7 @@
     - [x]  Agarrar carta
     - [x]  Tirar carta
     - [x]  Cortar
-    - [ ]  Mostrar juegos de todos los jugadores
+    - [x]  Mostrar juegos de todos los jugadores
     - [ ]  Agregar cartas sobrantes a juegos de otros jugadores
     - [x]  Tabla de puntos
     - [x]  Volver a repartir cartas

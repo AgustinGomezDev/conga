@@ -115,7 +115,8 @@ export const useGameSocket = () => {
         ...prev,
         turn: gs.currentTurn,
         isGamePaused: gs.isGamePaused,
-        endGameModal: false
+        endGameModal: false,
+        closeGamePlayerCards: []
       }))
     })
 
