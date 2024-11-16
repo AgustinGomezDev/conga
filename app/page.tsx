@@ -5,6 +5,7 @@ import { CardDeck } from '@/components/game/CardDeck';
 import { PlayerHand } from '@/components/game/PlayerHand';
 import { useGameSocket } from '@/hooks/useGameSocket';
 import Scoreboard from '@/components/game/Scoreboard';
+import CardGameShow from '@/components/game/CardGameShow';
 
 export default function Home() {
   const {
@@ -18,6 +19,10 @@ export default function Home() {
     handleOtherPlayersCards,
     handleReDealCards
   } = useGameSocket();
+
+  const isGameShowingCards =
+    Array.isArray(gameState.closeGamePlayerCards) &&
+    gameState.closeGamePlayerCards.some((playerCards) => playerCards.closingCard);
 
   return (
     <div className="container mx-auto p-4">
@@ -41,11 +46,14 @@ export default function Home() {
           isGamePaused={gameState.isGamePaused}
           lastPlayedCard={gameState.lastPlayedCard}
         />
-        <PlayerHand
-          cards={gameState.hand}
-          onPlayCard={handlePlayCard}
-          mode='playing'
-        />
+        {!isGameShowingCards && (
+          <PlayerHand
+            cards={gameState.hand}
+            onPlayCard={handlePlayCard}
+            mode="playing"
+          />
+        )}
+        {isGameShowingCards && <CardGameShow cards={gameState.closeGamePlayerCards} />}
       </div>
     </div>
   );

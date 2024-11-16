@@ -41,7 +41,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     }
 
     const handleReDealCards = () => {
-        if(gameState.gameId){
+        if (gameState.gameId) {
             onReDealCards(gameState.gameId)
             setIsOpen(true)
         }
@@ -170,13 +170,18 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     return (
         <>
             <Drawer onClose={handleDrawerClose}>
-                <DrawerTrigger asChild>
-                    <button
-                        className="bg-red-500 text-white px-4 py-2 rounded"
-                    >
-                        Cortar
-                    </button>
-                </DrawerTrigger>
+                {
+                    !isGamePaused
+                        ?
+                        <DrawerTrigger asChild>
+                            <button
+                                className="bg-red-500 text-white px-4 py-2 rounded"
+                            >
+                                Cortar
+                            </button>
+                        </DrawerTrigger>
+                        : null
+                }
                 <DrawerContent>
                     <div className="w-full relative">
                         <button
@@ -211,7 +216,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                     </div>
                 </DrawerContent>
             </Drawer>
-            {isGamePaused ? <button className="bg-yellow-500 text-white px-4 py-2 rounded" onClick={handleReDealCards}>Repartir cartas</button> : null }
+            {isGamePaused ? <button className="bg-yellow-500 text-white px-4 py-2 rounded" onClick={handleReDealCards}>Repartir cartas</button> : null}
         </>
 
     )

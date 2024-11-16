@@ -4,6 +4,11 @@ export interface Card {
   value: string;
 }
 
+export interface ClosingPlayerCards {
+  combinedCards: Card[][] | Card[] | null;
+  closingCard?: Card | null;
+  leftOverCards?: Card[] | null;
+}
 export interface GameState {
   hand: Card[];
   gameId: number | null;
@@ -17,4 +22,5 @@ export interface GameState {
   lastPlayedCard: Card | null;
   endGameModal: boolean;
   scoreBoard: { [key: string]: number[] };
+  closeGamePlayerCards: ClosingPlayerCards[];
 }

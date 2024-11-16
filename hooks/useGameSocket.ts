@@ -15,7 +15,14 @@ const initialGameState: GameState = {
   playerIndex: -1,
   lastPlayedCard: null,
   endGameModal: false,
-  scoreBoard: {}
+  scoreBoard: {},
+  closeGamePlayerCards: [
+      {
+        closingCard: null,
+        combinedCards: null,
+        leftOverCards: null
+      }
+    ]
 };
 
 export const useGameSocket = () => {
@@ -93,7 +100,13 @@ export const useGameSocket = () => {
         isGameStarted: gs.isGameStarted,
         isGamePaused: gs.isGamePaused,
         lastPlayedCard: gs.lastPlayedCard,
-        scoreBoard: gs.scoreBoard
+        scoreBoard: gs.scoreBoard,
+        closeGamePlayerCards: gs.closedPlayerCards
+        ? [
+              ...(prev.closeGamePlayerCards || []),
+              gs.closedPlayerCards,
+          ]
+        : [gs.closerPlayerCards],
       }));
     })
 
