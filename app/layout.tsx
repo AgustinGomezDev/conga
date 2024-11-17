@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Onest } from 'next/font/google'
 import "./globals.css";
+import GithubLink from "@/components/GithubLink";
 
 const onest = Onest({
   subsets: ['latin'],
@@ -20,8 +21,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`antialiased dark ${onest.className}`}
+        className={`antialiased dark relative overflow-hidden ${onest.className}`}
       >
+        <GithubLink />
         {children}
       </body>
     </html>
