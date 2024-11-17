@@ -1,60 +1,24 @@
-'use client'
-import { GameControls } from '@/components/game/GameControls';
-import { GameInfo } from '@/components/game/GameInfo';
-import { CardDeck } from '@/components/game/CardDeck';
-import { PlayerHand } from '@/components/game/PlayerHand';
-import { useGameSocket } from '@/hooks/useGameSocket';
-import Scoreboard from '@/components/game/Scoreboard';
-import CardGameShow from '@/components/game/CardGameShow';
+import { Button } from '@/components/ui/button'
+import React from 'react'
 
-export default function Home() {
-  const {
-    gameState,
-    handleCreateGame,
-    handleJoinGame,
-    handlePlayCard,
-    handleDrawCard,
-    handleDrawLastPlayedCard,
-    handleEndGame,
-    handleOtherPlayersCards,
-    handleReDealCards
-  } = useGameSocket();
-
-  const isGameShowingCards =
-    Array.isArray(gameState.closeGamePlayerCards) &&
-    gameState.closeGamePlayerCards.some((playerCards) => playerCards.closingCard);
-
-  return (
-    <div className="container mx-auto p-4">
-      <GameControls
-        onCreateGame={handleCreateGame}
-        onJoinGame={handleJoinGame}
-        onEndGame={handleEndGame}
-        onOtherPlayersCards={handleOtherPlayersCards}
-        gameState={gameState}
-        isGameStarted={gameState.isGameStarted}
-        isGamePaused={gameState.isGamePaused}
-        onReDealCards={handleReDealCards}
-      />
-      {gameState.scoreBoard && <Scoreboard scores={gameState.scoreBoard} />}
-      <GameInfo gameState={gameState} />
-      <div className='flex flex-col items-center gap-5'>
-        <CardDeck
-          onDrawCard={handleDrawCard}
-          onDrawLastPlayedCard={handleDrawLastPlayedCard}
-          isGameStarted={gameState.isGameStarted}
-          isGamePaused={gameState.isGamePaused}
-          lastPlayedCard={gameState.lastPlayedCard}
-        />
-        {!isGameShowingCards && (
-          <PlayerHand
-            cards={gameState.hand}
-            onPlayCard={handlePlayCard}
-            mode="playing"
-          />
-        )}
-        {isGameShowingCards && <CardGameShow cards={gameState.closeGamePlayerCards} />}
-      </div>
-    </div>
-  );
+const page = () => {
+    return (
+        <main>
+            <h1 className="text-5xl font-bold text-center my-4">La Conga</h1>
+            <ul className="flex justify-center items-center gap-5">
+                <li>
+                    <a href="/partida-solitaria">
+                        <Button>Partida solitaria</Button>
+                    </a>
+                </li>
+                <li>
+                    <a href="/partida-2-jugadores">
+                        <Button>Partida 2 jugadores</Button>
+                    </a>
+                </li>
+            </ul>
+        </main>
+    )
 }
+
+export default page
