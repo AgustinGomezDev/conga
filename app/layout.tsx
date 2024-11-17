@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
+import { Onest } from 'next/font/google'
 import "./globals.css";
+
+const onest = Onest({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "La Conga",
@@ -14,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`antialiased dark`}
+        className={`antialiased dark ${onest.className}`}
       >
         {children}
       </body>
