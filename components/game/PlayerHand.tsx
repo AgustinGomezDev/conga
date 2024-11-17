@@ -11,22 +11,27 @@ interface PlayerHandProps {
 
 export const PlayerHand: FC<PlayerHandProps> = ({ cards, onPlayCard, mode }) => {
   const buttonCn = mode === 'playing'
-    ? "transform hover:scale-105 transition-transform"
+    ? "transform hover:scale-105 hover:-translate-y-5 transition-transform"
     : "";
 
   return (
-    <ul className="flex flex-wrap gap-4">
-      {cards.map((card) => (
-        <li key={card.id}>
-          <button
-            className={buttonCn}
-            onClick={() => onPlayCard(card.id)}
-            id={card.id.toString()}
+    <div className="relative flex items-end justify-center">
+      <ul className="relative flex">
+        {cards.map((card, index) => (
+          <li
+            key={card.id}
+            className={`z-${index} -mx-5`}
           >
-            <CardComponent card={card} mode={mode} />
-          </button>
-        </li>
-      ))}
-    </ul>
+            <button
+              className={`relative ${buttonCn}`}
+              onClick={() => onPlayCard(card.id)}
+              id={card.id.toString()}
+            >
+              <CardComponent card={card} mode={mode} />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

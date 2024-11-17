@@ -16,7 +16,7 @@ interface GameControlsProps {
 
 export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, onEndGame, onOtherPlayersCards, onReDealCards, isGameStarted, isGamePaused, gameState }) => {
   return (
-    <div className="mb-4 space-x-4">
+    <div className="flex justify-center items-center mb-4 space-x-4">
       {
         isGameStarted
           ? <EndGameControls gameState={gameState} onEndGame={onEndGame} onOtherPlayersCards={onOtherPlayersCards} onReDealCards={onReDealCards} isGamePaused={isGamePaused} />
@@ -32,7 +32,7 @@ export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, 
               className="bg-green-500 text-white px-4 py-2 rounded"
               onClick={onJoinGame}
             >
-              Unirse a Juego
+              Unirse a una Partida
             </button>
           </>
       }
