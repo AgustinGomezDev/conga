@@ -33,6 +33,14 @@ const CardGameShow = ({ cards }: CardGameShowProps) => {
                             </div>
                         )}
 
+                    {/* CLOSING CARD */}
+                    {playerCards.closingCard && (
+                        <div className="relative">
+                            <p className="absolute -top-6">Carta para cortar</p>
+                            <CardComponent card={playerCards.closingCard} mode={'playing'} />
+                        </div>
+                    )}
+
                     {/* LEFTOVERCARDS */}
                     {playerCards.leftOverCards && Array.isArray(playerCards.leftOverCards) && (
                         <div className="flex relative">
@@ -51,14 +59,6 @@ const CardGameShow = ({ cards }: CardGameShowProps) => {
                                     }
                                 />
                             ))}
-                        </div>
-                    )}
-
-                    {/* CLOSING CARD */}
-                    {playerCards.closingCard && (
-                        <div className="relative">
-                            <p className="absolute -top-6">Carta para cortar</p>
-                            <CardComponent card={playerCards.closingCard} mode={'playing'} />
                         </div>
                     )}
                 </div>

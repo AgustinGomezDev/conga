@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`antialiased dark relative overflow-hidden ${onest.className}`}
+        className={`antialiased dark overflow-x-hidden ${onest.className}`}
       >
         <GithubLink />
         {children}

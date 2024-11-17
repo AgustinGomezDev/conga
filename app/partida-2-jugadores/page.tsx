@@ -25,7 +25,7 @@ export default function Home() {
     gameState.closeGamePlayerCards.some((playerCards) => playerCards.closingCard);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 relative">
       <GameControls
         onCreateGame={handleCreateGame}
         onJoinGame={handleJoinGame}
@@ -36,7 +36,7 @@ export default function Home() {
         isGamePaused={gameState.isGamePaused}
         onReDealCards={handleReDealCards}
       />
-      {gameState.scoreBoard && <Scoreboard scores={gameState.scoreBoard} />}
+      {Object.keys(gameState.scoreBoard).length > 0 && <Scoreboard scores={gameState.scoreBoard} />}
       <GameInfo gameState={gameState} />
       <div className='flex flex-col items-center gap-5'>
         <CardDeck
