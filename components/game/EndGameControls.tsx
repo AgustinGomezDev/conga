@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import {
     Drawer,
     DrawerContent,
@@ -28,6 +28,10 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     const [leftOverCards, setLeftOverCards] = useState<Card[]>([])
     const [combinedCards, setCombinedCards] = useState<Card[][]>([[], []])
     const [isOpen, setIsOpen] = useState<boolean>(true)
+
+    useEffect(() => {
+        setIsOpen(true)
+    }, [gameState.endGameModal])
 
     const handleEndGame = () => {
         if (closingCard && combinedCards) {
@@ -119,6 +123,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
         if (leftOverCards || combinedCards) {
             onOtherPlayersCards(leftOverCards, combinedCards)
             setIsOpen(!isOpen)
+            handleDrawerClose()
         }
     }
 
