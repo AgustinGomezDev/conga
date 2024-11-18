@@ -42,7 +42,7 @@ const CardGameShow = ({ cards }: CardGameShowProps) => {
                     )}
 
                     {/* LEFTOVERCARDS */}
-                    {playerCards.leftOverCards && Array.isArray(playerCards.leftOverCards) && (
+                    { playerCards.leftOverCards && playerCards.leftOverCards[0] !== null && (
                         <div className="flex relative">
                             <p className="absolute -top-6">Cartas sobrantes</p>
                             {playerCards.leftOverCards.map((card, index) => (
