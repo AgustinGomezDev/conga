@@ -99,7 +99,7 @@ export const useGameSocket = () => {
         playersCount: gs.playersCount,
         isGameStarted: gs.isGameStarted,
         isGamePaused: gs.isGamePaused,
-        lastPlayedCard: gs.lastPlayedCard,
+        lastPlayedCard: null,
         scoreBoard: gs.scoreBoard,
         closeGamePlayerCards: gs.closedPlayerCards
         ? [
