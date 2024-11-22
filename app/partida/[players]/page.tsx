@@ -6,8 +6,12 @@ import { PlayerHand } from '@/components/game/PlayerHand';
 import { useGameSocket } from '@/hooks/useGameSocket';
 import Scoreboard from '@/components/game/Scoreboard';
 import CardGameShow from '@/components/game/CardGameShow';
+import { redirect, useParams } from "next/navigation";
 
 export default function Home() {
+  const params = useParams();
+  const { players } = params;
+
   const {
     gameState,
     handleCreateGame,
@@ -19,6 +23,12 @@ export default function Home() {
     handleOtherPlayersCards,
     handleReDealCards
   } = useGameSocket();
+
+  if (Number(players) && Number(players) >= 2 && Number(players) <= 8) {
+    gameState.maxPlayers = Number(players)
+  } else {
+    redirect('/')
+  }
 
   const isGameShowingCards =
     Array.isArray(gameState.closeGamePlayerCards) &&

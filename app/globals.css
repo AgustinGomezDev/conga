@@ -10,6 +10,24 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+  .bento-card {
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-b from-slate-700 to-slate-800;
+  }
+
+  .bento-card::before {
+    background: conic-gradient(
+      rgba(114, 149, 244, 0.4) 0deg,
+      rgba(136, 252, 132, 0.4) 0deg,
+      transparent 80deg
+    );
+
+    @apply absolute left-[-50%] top-[-50%] h-[200%] w-[200%] animate-border-spin content-[''];
+  }
+
+  .bento-content {
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-slate-900 hover:bg-slate-800 transition-colors;
+  }
 }
 
 @layer base {
