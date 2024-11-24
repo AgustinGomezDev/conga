@@ -7,7 +7,7 @@ interface CardGameShowProps {
 
 const CardGameShow = ({ cards }: CardGameShowProps) => {
     return (
-        <div className="flex flex-col w-full items-center gap-10 mt-20">
+        <div className="flex flex-col w-full items-center gap-10 mt-5">
             {cards.map((playerCards, playerIndex) => (
                 <div key={playerIndex} className="flex justify-between w-full gap-5">
 
