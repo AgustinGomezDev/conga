@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={`antialiased dark overflow-x-hidden ${onest.className} h-screen grid grid-rows-[95%_5%]`}
       >
-        <GithubLink />
+        {/* <GithubLink /> */}
         {children}
         <Footer />
       </body>
