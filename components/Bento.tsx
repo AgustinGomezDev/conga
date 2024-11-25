@@ -12,7 +12,7 @@ const CARDS = [
         id: 1,
         title: "Un jugador",
         description: "",
-        html: <Button>Comenzar partida</Button>,
+        html: <p className="bg-primary text-primary-foreground shadow hover:bg-primary/90 rounded-lg py-2 px-4 text-center transition-colors">Comenzar partida</p>,
         link: "/partida-solitaria",
         border: false,
         icon: SingleplayerIcon,
@@ -26,7 +26,7 @@ const CARDS = [
         id: 2,
         title: "Perfil",
         description: "",
-        html: <Button variant="outline">Iniciar sesión</Button>,
+        html: <p className="border border-accent bg-transparent shadow-sm hover:bg-accent hover:text-foregroundSecondary rounded-lg py-2 px-4 text-center transition-colors">Iniciar sesión</p>,
         link: "/perfil",
         border: false,
         icon: ProfileIcon,
@@ -45,7 +45,7 @@ const CARDS = [
         id: 4,
         title: "Multijugador",
         description: "¡Únete a otros jugadores y disfruta de La Conga en línea!",
-        html: <Button className="bg-white text-foreground hover:text-white font-bold text-xl h-14 w-full">Buscar partida</Button>,
+        html: <p className="bg-white text-foreground hover:bg-primary hover:text-white font-bold text-xl h-14 w-full rounded-lg flex justify-center items-center transition-colors">Buscar partida</p>,
         link: "/partida/",
         modal: true,
         border: true,
@@ -72,7 +72,7 @@ const CARDS = [
                     <li>- Jugador 9</li>
                     <li>- Jugador 10</li>
                 </ul>
-                <Button className="bg-accent">Ver más</Button>
+                <p className="bg-accent text-primary-foreground shadow hover:bg-primary/90 rounded-lg py-2 px-4 text-center transition-colors">Ver más</p>
             </>,
         link: "/ranking",
         border: false,
