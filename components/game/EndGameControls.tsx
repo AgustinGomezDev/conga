@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/drawer"
 import { PlayerHand } from './PlayerHand'
 import { GameState, Card } from '@/types/game';
-import CardComponent from './CardComponent';
 import EndGameCardComponent from './EndGameCardComponent';
+import { Button } from '../ui/button';
 
 interface EndGameProps {
     gameState: GameState;
@@ -139,28 +139,30 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     if (gameState.endGameModal) {
         return (
             <Drawer open={isOpen}>
-                <DrawerContent>
+                <DrawerContent className='border-accent'>
                     <div className="w-full relative">
-                        <button
-                            className="bg-red-500 text-white px-4 py-2 rounded absolute top-0 right-0 mr-10"
+                        <Button
+                            className="text-foreground border-accent text-md px-8 hover:text-accent hover:bg-foreground absolute top-0 right-0 mr-10"
+                            size='xl'
+                            variant='outline'
                             onClick={handleOtherPlayersCards}
                         >
                             Enviar cartas
-                        </button>
+                        </Button>
                         <DrawerHeader>
                             <DrawerTitle>Ordena tus cartas para poder sumar los puntos</DrawerTitle>
                             <DrawerDescription>Cartas sobrantes y combinaciones de juegos.</DrawerDescription>
                         </DrawerHeader>
                         <div>
                             <div className='p-4 w-full flex items-center gap-4'>
-                                <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='leftOverCards' onClick={handleCardSlot}>
-                                    {leftOverCards.length > 0 ? leftOverCards?.map((card, index) => <EndGameCardComponent key={index} card={card} />) : <span className='text-black text-center px-2'>Cartas sobrantes</span>}
+                                <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='leftOverCards' onClick={handleCardSlot}>
+                                    {leftOverCards.length > 0 ? leftOverCards?.map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Cartas sobrantes</span>}
                                 </div>
-                                <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
-                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent key={index} card={card} />) : <span className='text-black text-center px-2'>Juego 1</span>}
+                                <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
+                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 1</span>}
                                 </div>
-                                <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
-                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent key={index} card={card} />) : <span className='text-black text-center px-2'>Juego 2</span>}
+                                <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
+                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 2</span>}
                                 </div>
                             </div>
                             <div className='p-4 w-full flex justify-center items-center'>
@@ -180,39 +182,43 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                     !isGamePaused
                         ?
                         <DrawerTrigger asChild>
-                            <button
-                                className="bg-red-500 text-white px-4 py-2 rounded"
+                            <Button
+                                className="text-foreground border-accent text-md px-8 hover:text-accent hover:bg-foreground absolute"
+                                size='xl'
+                                variant='outline'
                             >
                                 Cortar
-                            </button>
+                            </Button>
                         </DrawerTrigger>
                         : null
                 }
-                <DrawerContent>
+                <DrawerContent className='border-accent'>
                     <div className="w-full relative">
-                        <button
-                            className="bg-red-500 text-white px-4 py-2 rounded absolute top-0 right-0 mr-10"
+                        <Button
+                            className="text-foreground border-accent text-md px-8 hover:text-accent hover:bg-foreground absolute top-0 right-0 mr-10"
+                            size='xl'
+                            variant='outline'
                             onClick={handleEndGame}
                         >
                             Cortar
-                        </button>
+                        </Button>
                         <DrawerHeader>
                             <DrawerTitle>Ordena tus cartas para poder cortar</DrawerTitle>
                             <DrawerDescription>Carta con la que se corta, carta sobrante y combinaciones de juegos.</DrawerDescription>
                         </DrawerHeader>
                         <div>
                             <div className='p-4 w-full flex items-center gap-4'>
-                                <div className='bg-gray-300 h-52 w-36 grid place-content-center rounded-lg' id='closingCard' onClick={handleCardSlot}>
-                                    {closingCard ? <EndGameCardComponent card={closingCard} /> : <span className='text-black text-center px-2'>Carta con la que se corta</span>}
+                                <div className='border-dashed border-2 border-accent h-52 w-36 grid place-content-center rounded-lg' id='closingCard' onClick={handleCardSlot}>
+                                    {closingCard ? <EndGameCardComponent card={closingCard} /> : <span className='text-muted-foreground text-center px-2'>Carta con la que se corta</span>}
                                 </div>
-                                <div className='bg-gray-300 h-52 w-36 grid place-content-center rounded-lg' id='leftOverCard' onClick={handleCardSlot}>
-                                    {leftOverCard ? <EndGameCardComponent card={leftOverCard} /> : <span className='text-black text-center px-2'>Carta sobrante</span>}
+                                <div className='border-dashed border-2 border-accent h-52 w-36 grid place-content-center rounded-lg' id='leftOverCard' onClick={handleCardSlot}>
+                                    {leftOverCard ? <EndGameCardComponent card={leftOverCard} /> : <span className='text-muted-foreground text-center px-2'>Carta sobrante</span>}
                                 </div>
-                                <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
-                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent key={index} card={card}/>) : <span className='text-black text-center px-2'>Juego 1</span>}
+                                <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
+                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 1</span>}
                                 </div>
-                                <div className='bg-gray-300 h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
-                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent key={index} card={card} />) : <span className='text-black text-center px-2'>Juego 2</span>}
+                                <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
+                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 2</span>}
                                 </div>
                             </div>
                             <div className='p-4 w-full flex justify-center items-center'>
@@ -222,7 +228,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                     </div>
                 </DrawerContent>
             </Drawer>
-            {isGamePaused ? <button className="bg-yellow-500 text-white px-4 py-2 rounded" onClick={handleReDealCards}>Repartir cartas</button> : null}
+            {isGamePaused ? <Button className="absolute bg-accent hover:bg-foreground/40 text-white text-md" size="lg" onClick={handleReDealCards}>Repartir cartas</Button> : null}
         </>
 
     )

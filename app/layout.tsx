@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`antialiased dark overflow-x-hidden ${onest.className} h-screen grid grid-rows-[95%_5%]`}
+        className={`antialiased light overflow-x-hidden ${onest.className} h-screen`}
       >
         {/* <GithubLink /> */}
         {children}

@@ -44,7 +44,7 @@ export const PlayerHand: FC<PlayerHandProps> = ({ cards, onPlayCard, handleReOrd
                     onClick={() => onPlayCard(card.id)}
                     id={card.id.toString()}
                   >
-                    <CardComponent card={card} />
+                    <CardComponent showDragIcon={true} card={card} />
                   </button>
                 </li>
               ))}
@@ -55,6 +55,7 @@ export const PlayerHand: FC<PlayerHandProps> = ({ cards, onPlayCard, handleReOrd
             <li key={card.id} className={`z-${index} -mx-5`}>
               <button
                 className={`relative`}
+                onClick={() => onPlayCard(card.id)}
                 id={card.id.toString()}
               >
                 <EndGameCardComponent card={card} />

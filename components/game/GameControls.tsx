@@ -2,6 +2,7 @@
 import { FC } from 'react';
 import EndGameControls from './EndGameControls';
 import { GameState, Card } from '@/types/game';
+import { Button } from '../ui/button';
 
 interface GameControlsProps {
   onCreateGame: (maxPlayers: number) => void;
@@ -22,18 +23,21 @@ export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, 
           ? <EndGameControls gameState={gameState} onEndGame={onEndGame} onOtherPlayersCards={onOtherPlayersCards} onReDealCards={onReDealCards} isGamePaused={isGamePaused} />
           :
           <>
-            <button
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+            <Button
+              className="bg-accent hover:bg-foreground/40 text-white text-md "
+              size='2xl'
               onClick={() => onCreateGame(2)}
             >
               Crear Partida
-            </button>
-            <button
-              className="bg-green-500 text-white px-4 py-2 rounded"
+            </Button>
+            <Button
+              className="text-foreground border-accent text-md px-8 hover:text-accent hover:bg-foreground"
+              size='2xl'
+              variant='outline'
               onClick={onJoinGame}
             >
               Unirse a una Partida
-            </button>
+            </Button>
           </>
       }
     </div>

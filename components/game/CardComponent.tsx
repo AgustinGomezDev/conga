@@ -7,9 +7,11 @@ import { HorizontalArrow } from '@/assets/icons/HorizontalArrow';
 
 interface CardComponentProps {
   card: Card;
+  cn?: string;
+  showDragIcon: boolean;
 }
 
-const CardComponent: FC<CardComponentProps> = ({ card }) => {
+const CardComponent: FC<CardComponentProps> = ({ card, cn, showDragIcon }) => {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: card.id })
 
   const style = {
@@ -19,7 +21,7 @@ const CardComponent: FC<CardComponentProps> = ({ card }) => {
 
   return (
     card.suit === 'comodin' ? (
-      <div className='relative'>
+      <div className={`relative ${cn}`}>
         <Image
           loading="lazy"
           width={200}
@@ -30,10 +32,10 @@ const CardComponent: FC<CardComponentProps> = ({ card }) => {
           ref={setNodeRef}
           style={style}
         />
-        <span {...attributes} {...listeners} className='absolute'><HorizontalArrow className='size-6' /></span>
+        {showDragIcon && <span {...attributes} {...listeners} className='absolute'><HorizontalArrow className='size-6' /></span>}
       </div>
     ) : (
-      <div className='relative'>
+      <div className={`relative ${cn}`}>
         <Image
           loading="lazy"
           width={200}
@@ -44,7 +46,7 @@ const CardComponent: FC<CardComponentProps> = ({ card }) => {
           ref={setNodeRef}
           style={style}
         />
-        <span {...attributes} {...listeners} className='absolute'><HorizontalArrow className='size-6' /></span>
+        {showDragIcon && <span {...attributes} {...listeners} className='absolute'><HorizontalArrow className='size-6' /></span>}
       </div>
     )
   );

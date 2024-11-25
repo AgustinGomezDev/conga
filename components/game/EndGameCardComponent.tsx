@@ -4,33 +4,30 @@ import { Card } from '@/types/game'
 
 interface EndGameCardComponentProps {
   card: Card;
+  cn?: string;
 }
 
-const EndGameCardComponent: FC<EndGameCardComponentProps> = ({ card }) => {
+const EndGameCardComponent: FC<EndGameCardComponentProps> = ({ card, cn }) => {
 
   return (
     card.suit === 'comodin' ? (
-      <div className='relative'>
-        <Image
-          loading="lazy"
-          width={200}
-          height={200}
-          src="/cards/otra/tapa.png"
-          alt="Carta comodín"
-          className={`rounded-lg shadow-lg w-auto h-52`}
-        />
-      </div>
+      <Image
+        loading="lazy"
+        width={200}
+        height={200}
+        src="/cards/otra/tapa.png"
+        alt="Carta comodín"
+        className={`rounded-lg shadow-lg w-auto h-52 ${cn}`}
+      />
     ) : (
-      <div className='relative'>
-        <Image
-          loading="lazy"
-          width={200}
-          height={200}
-          src={`/cards/${card.suit}/${card.value}.png`}
-          alt={`Carta ${card.value} de ${card.suit}`}
-          className={`rounded-lg shadow-lg w-auto h-52`}
-        />
-      </div>
+      <Image
+        loading="lazy"
+        width={200}
+        height={200}
+        src={`/cards/${card.suit}/${card.value}.png`}
+        alt={`Carta ${card.value} de ${card.suit}`}
+        className={`rounded-lg shadow-lg w-auto h-52 ${cn}`}
+      />
     )
   );
 }

@@ -24,8 +24,8 @@ const CardGameShow = ({ cards }: CardGameShowProps) => {
                                                 <CardComponent
                                                     key={cardIndex}
                                                     card={card}
-                                                    mode={'playing'}
                                                     cn={cardIndex !== 0 ? '-mx-16' : '-mr-16'}
+                                                    showDragIcon={false}
                                                 />
                                             ))}
                                     </div>
@@ -37,7 +37,7 @@ const CardGameShow = ({ cards }: CardGameShowProps) => {
                     {playerCards.closingCard && (
                         <div className="relative">
                             <p className="absolute -top-6">Carta para cortar</p>
-                            <CardComponent card={playerCards.closingCard} mode={'playing'} />
+                            <CardComponent showDragIcon={false} card={playerCards.closingCard} />
                         </div>
                     )}
 
@@ -47,9 +47,9 @@ const CardGameShow = ({ cards }: CardGameShowProps) => {
                             <p className="absolute -top-6">Cartas sobrantes</p>
                             {playerCards.leftOverCards.map((card, index) => (
                                 <CardComponent
+                                    showDragIcon={false}
                                     key={index}
                                     card={card}
-                                    mode={'playing'}
                                     cn={
                                         playerCards.leftOverCards.length > 1
                                             ? index !== 0
