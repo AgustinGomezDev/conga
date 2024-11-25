@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { GameState, Card } from '@/types/game';
+import { arrayMove } from '@dnd-kit/sortable';
 
 const initialGameState: GameState = {
   hand: [],
@@ -224,6 +225,30 @@ export const useGameSocket = () => {
     socket.emit('reDealCards', gameId)
   }, [socket])
 
+  const handleReOrderCards = useCallback(({ active, over }: { active: { id: number }, over: { id: number } }) => {
+    if(!socket) return;
+    let newHand;
+    setGameState(prev => {
+      if (!prev.hand) return prev;
+  
+      const oldIndex = prev.hand.findIndex(item => item.id === active.id);
+      const newIndex = prev.hand.findIndex(item => item.id === over.id);
+  
+      if (oldIndex === -1 || newIndex === -1) {
+        return prev;
+      }
+      newHand = arrayMove(prev.hand, oldIndex, newIndex);
+
+      return {
+        ...prev,
+        hand: newHand,
+      };
+    });
+    
+
+    socket.emit('reOrderCards', socket.id, newHand)
+  }, [socket]);
+
   return {
     gameState,
     handleCreateGame,
@@ -233,6 +258,7 @@ export const useGameSocket = () => {
     handleDrawLastPlayedCard,
     handleEndGame,
     handleOtherPlayersCards,
-    handleReDealCards
+    handleReDealCards,
+    handleReOrderCards
   };
 };
