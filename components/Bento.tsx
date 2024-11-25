@@ -5,12 +5,14 @@ import { PlayersIcon } from "@/assets/icons/ui/PlayersIcon"
 import { RankingIcon } from "@/assets/icons/ui/RankingIcon"
 import { RulesIcon } from "@/assets/icons/ui/RulesIcon"
 import { SingleplayerIcon } from "@/assets/icons/ui/SingleplayerIcon"
+import { Button } from "@/components/ui/button"
 
 const CARDS = [
     {
         id: 1,
         title: "Un jugador",
-        description: "Comenzar partida",
+        description: "",
+        html: <Button>Comenzar partida</Button>,
         link: "/partida-solitaria",
         border: false,
         icon: SingleplayerIcon,
@@ -23,7 +25,8 @@ const CARDS = [
     {
         id: 2,
         title: "Perfil",
-        description: "Iniciar sesión",
+        description: "",
+        html: <Button variant="outline">Iniciar sesión</Button>,
         link: "/perfil",
         border: false,
         icon: ProfileIcon,
@@ -42,6 +45,7 @@ const CARDS = [
         id: 4,
         title: "Multijugador",
         description: "¡Únete a otros jugadores y disfruta de La Conga en línea!",
+        html: <Button className="bg-white text-foreground hover:text-white font-bold text-xl h-14 w-full">Buscar partida</Button>,
         link: "/partida/",
         modal: true,
         border: true,
@@ -53,7 +57,23 @@ const CARDS = [
     {
         id: 5,
         title: "Ranking",
-        description: "1. Jugador x, 2. Jugador y, 3. Jugador z",
+        description: "",
+        html:
+            <>
+                <ul className="text-lg">
+                    <li>- Jugador 1</li>
+                    <li>- Jugador 2</li>
+                    <li>- Jugador 3</li>
+                    <li>- Jugador 4</li>
+                    <li>- Jugador 5</li>
+                    <li>- Jugador 6</li>
+                    <li>- Jugador 7</li>
+                    <li>- Jugador 8</li>
+                    <li>- Jugador 9</li>
+                    <li>- Jugador 10</li>
+                </ul>
+                <Button className="bg-accent">Ver más</Button>
+            </>,
         link: "/ranking",
         border: false,
         icon: RankingIcon,
@@ -66,6 +86,7 @@ const CARDS = [
         id: 6,
         title: "Reglas",
         description: "La Conga es un juego de cartas tradicional. El objetivo es formar combinaciones y deshacerse de todas las cartas. Cada jugador recibe 7 cartas y debe formar tríos o escaleras del mismo palo...",
+        html: <p className="hover:text-foregroundSecondary transition-colors">Leer más...</p>,
         link: "/reglas",
         border: false,
         icon: RulesIcon,
@@ -84,7 +105,7 @@ const Bento = () => {
                     <Link
                         href={card.link}
                         key={card.id}
-                        className={`rounded-2xl shadow-lg min-h-44 p-4 bg-card hover:scale-105 transition-transform`}
+                        className={`rounded-2xl shadow-lg min-h-44 p-4 bg-card transition-transform`}
                         style={{
                             gridColumnStart: card.colStart,
                             gridColumnEnd: card.colEnd,
@@ -92,12 +113,13 @@ const Bento = () => {
                             gridRowEnd: card.rowEnd,
                         }}
                     >
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-2">
                             <div className="flex gap-4 items-center">
                                 {card.icon && <card.icon className="size-6 text-accent" />}
                                 <span className="text-2xl font-semibold">{card.title}</span>
                             </div>
-                            <p className="text-sm text-foregroundSecondary">{card.description}</p>
+                            <p className="text-foregroundSecondary">{card.description}</p>
+                            {card.html && card.html}
                         </div>
                     </Link>
                     :
@@ -106,6 +128,7 @@ const Bento = () => {
                         id={card.id}
                         title={card.title}
                         description={card.description}
+                        html={card.html}
                         link={card.link}
                         border={card.border}
                         colStart={card.colStart}

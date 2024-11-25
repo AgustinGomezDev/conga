@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { ReactElement } from "react";
 import {
     Dialog,
     DialogContent,
@@ -17,6 +17,7 @@ type MultiplayerCardProps = {
     id: number;
     title: string;
     description: string;
+    html: ReactElement;
     link: string;
     border: boolean;
     colStart: number;
@@ -39,14 +40,15 @@ const MultiplayerCard: React.FC<MultiplayerCardProps> = (card) => {
         >
             <Dialog>
                 <DialogTrigger>
-                    <div className=" absolute top-0 w-full h-full">
-                        <div className="flex flex-col justify-center items-start py-4">
-                            <div className="text-white flex flex-col gap-4 ">
+                    <div className="absolute top-0 w-full h-full">
+                        <div className="flex flex-col justify-center items-start py-4 pr-8 w-full">
+                            <div className="text-white items-start flex flex-col gap-4 w-full">
                                 <div className="flex items-center gap-4">
                                     <MultiplayerIcon className="size-6" />
                                     <span className="text-2xl font-semibold">{card.title}</span>
                                 </div>
                                 <p className="text-sm">{card.description}</p>
+                                {card.html && card.html}
                             </div>
                         </div>
                     </div>
