@@ -21,7 +21,8 @@ export default function Home() {
     handleDrawLastPlayedCard,
     handleEndGame,
     handleOtherPlayersCards,
-    handleReDealCards
+    handleReDealCards,
+    handleReOrderCards
   } = useGameSocket();
 
   if (Number(players) && Number(players) >= 2 && Number(players) <= 8) {
@@ -60,6 +61,7 @@ export default function Home() {
           <PlayerHand
             cards={gameState.hand}
             onPlayCard={handlePlayCard}
+            handleReOrderCards={handleReOrderCards}
             mode="playing"
           />
         )}
