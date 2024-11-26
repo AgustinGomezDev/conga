@@ -26,7 +26,7 @@ const CardComponent: FC<CardComponentProps> = ({ card, cn, showDragIcon }) => {
           loading="lazy"
           width={200}
           height={200}
-          src="/cards/otra/tapa.png"
+          src="/cards/otra/tapa.webp"
           alt="Carta comodín"
           className={`rounded-lg shadow-lg w-auto h-80`}
           ref={setNodeRef}
@@ -40,7 +40,7 @@ const CardComponent: FC<CardComponentProps> = ({ card, cn, showDragIcon }) => {
           loading="lazy"
           width={200}
           height={200}
-          src={`/cards/${card.suit}/${card.value}.png`}
+          src={`/cards/${card.suit}/${card.value}.webp`}
           alt={`Carta ${card.value} de ${card.suit}`}
           className={`rounded-lg shadow-lg w-auto h-80`}
           ref={setNodeRef}

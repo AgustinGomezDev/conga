@@ -21,7 +21,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
           loading="lazy"
           width={200}
           height={200}
-          src="/cards/otra/tapa.png"
+          src="/cards/otra/tapa.webp"
           alt="Carta comodín"
           className="rounded-lg shadow-lg h-80 w-auto hover:scale-105 transition-transform"
         />
@@ -33,7 +33,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
               loading="lazy"
               width={200}
               height={200}
-              src="/cards/otra/tapa.png"
+              src="/cards/otra/tapa.webp"
               alt="Carta comodín"
               className="rounded-lg shadow-lg h-80 w-auto hover:scale-105 transition-transform"
             />
@@ -44,7 +44,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
               loading="lazy"
               width={200}
               height={200}
-              src={`/cards/${lastPlayedCard.suit}/${lastPlayedCard.value}.png`}
+              src={`/cards/${lastPlayedCard.suit}/${lastPlayedCard.value}.webp`}
               alt={`Carta ${lastPlayedCard.value} de ${lastPlayedCard.suit}`}
               className="rounded-lg shadow-lg h-80 w-auto hover:scale-105 transition-transform"
             />
