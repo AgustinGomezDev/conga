@@ -26,7 +26,7 @@ export const GameControls: FC<GameControlsProps> = ({ onCreateGame, onJoinGame, 
             <Button
               className="bg-accent hover:bg-foreground/40 text-white text-md "
               size='2xl'
-              onClick={() => onCreateGame(2)}
+              onClick={() => onCreateGame(gameState.maxPlayers)}
             >
               Crear Partida
             </Button>
