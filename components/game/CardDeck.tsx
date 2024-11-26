@@ -33,7 +33,7 @@ export const CardDeck: FC<CardDeckProps> = ({ onDrawCard, onDrawLastPlayedCard, 
               loading="lazy"
               width={200}
               height={200}
-              src="/cards/otra/tapa.webp"
+              src="/cards/otra/comodin.webp"
               alt="Carta comodín"
               className="rounded-lg shadow-lg h-80 w-auto hover:scale-105 transition-transform"
             />

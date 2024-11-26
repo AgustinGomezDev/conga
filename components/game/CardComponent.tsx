@@ -26,7 +26,7 @@ const CardComponent: FC<CardComponentProps> = ({ card, cn, showDragIcon }) => {
           loading="lazy"
           width={200}
           height={200}
-          src="/cards/otra/tapa.webp"
+          src="/cards/otra/comodin.webp"
           alt="Carta comodín"
           className={`rounded-lg shadow-lg w-auto h-80`}
           ref={setNodeRef}
