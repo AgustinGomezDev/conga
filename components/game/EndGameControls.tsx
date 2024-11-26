@@ -35,6 +35,13 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     }, [gameState.endGameModal])
 
     const handleEndGame = () => {
+        const unassignedCards = filteredHand.length;
+
+        if (unassignedCards > 0) {
+            alert('Debes asignar todas las cartas antes de enviar.');
+            return;
+        }
+
         if (closingCard && combinedCards) {
             onEndGame(closingCard, combinedCards, leftOverCard);
         }
