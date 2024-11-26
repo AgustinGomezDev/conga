@@ -121,6 +121,13 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
     }
 
     const handleOtherPlayersCards = () => {
+        const unassignedCards = filteredHand.length;
+
+        if (unassignedCards > 0) {
+            alert('Debes asignar todas las cartas antes de enviar.');
+            return;
+        }
+
         if (leftOverCards || combinedCards) {
             onOtherPlayersCards(leftOverCards, combinedCards)
             setIsOpen(!isOpen)
@@ -156,13 +163,13 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                         <div>
                             <div className='p-4 w-full flex items-center gap-4'>
                                 <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='leftOverCards' onClick={handleCardSlot}>
-                                    {leftOverCards.length > 0 ? leftOverCards?.map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Cartas sobrantes</span>}
+                                    {leftOverCards.length > 0 ? leftOverCards?.map((card, index) => <EndGameCardComponent cn={'-mx-10'} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Cartas sobrantes</span>}
                                 </div>
                                 <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
-                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 1</span>}
+                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent cn={'-mx-10'} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 1</span>}
                                 </div>
                                 <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
-                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 2</span>}
+                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent cn={'-mx-10'} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 2</span>}
                                 </div>
                             </div>
                             <div className='p-4 w-full flex justify-center items-center'>
@@ -215,10 +222,10 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                                     {leftOverCard ? <EndGameCardComponent card={leftOverCard} /> : <span className='text-muted-foreground text-center px-2'>Carta sobrante</span>}
                                 </div>
                                 <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game1' onClick={handleCardSlot}>
-                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 1</span>}
+                                    {combinedCards[0].length > 0 ? combinedCards[0].map((card, index) => <EndGameCardComponent cn={'-mx-10'} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 1</span>}
                                 </div>
                                 <div className='border-dashed border-2 border-accent h-52 w-36 flex justify-center items-center rounded-lg flex-1' id='game2' onClick={handleCardSlot}>
-                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent cn={index !== 0 ? '-mx-12' : ''} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 2</span>}
+                                    {combinedCards[1].length > 0 ? combinedCards[1].map((card, index) => <EndGameCardComponent cn={'-mx-10'} key={index} card={card} />) : <span className='text-muted-foreground text-center px-2'>Juego 2</span>}
                                 </div>
                             </div>
                             <div className='p-4 w-full flex justify-center items-center'>
