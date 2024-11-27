@@ -90,6 +90,146 @@ body {
     --chart-4: 255, 152, 0; /* Gráfico 4, naranja que se destaca sin ser tan brillante como en el light mode */
     --chart-5: 156, 39, 176; /* Gráfico 5, morado, vibrante pero no chocante */
   }
+
+  .noche {
+    --background: 20, 24, 37; /* Fondo oscuro, azul profundo para un ambiente nocturno */
+    --foreground: 154, 175, 227; /* Texto primario, un azul claro para destacar sobre el fondo oscuro */
+    --foreground-secondary: 150, 160, 200; /* Texto secundario, un azul más suave y relajado */
+    --card: 34, 40, 59; /* Fondo de las tarjetas, azul medianamente oscuro para un contraste sutil */
+    --card-foreground: 225, 235, 255; /* Texto dentro de las tarjetas, un azul muy claro para legibilidad */
+    --popover: 28, 32, 48; /* Fondo del popover, un azul ligeramente más claro que el fondo general */
+    --popover-foreground: 225, 235, 255; /* Texto del popover, igual al texto de las tarjetas para uniformidad */
+    --primary: 63, 81, 181; /* Color primario, azul vibrante con un matiz elegante */
+    --primary-foreground: 255, 255, 255; /* Texto sobre el primario, blanco brillante para asegurar legibilidad */
+    --secondary: 38, 50, 84; /* Color secundario, un azul oscuro con un matiz grisáceo */
+    --secondary-foreground: 202, 211, 235; /* Texto sobre el color secundario, un azul claro para contraste */
+    --muted: 48, 58, 78; /* Colores más suaves, azul-gris oscuro para elementos menos destacados */
+    --muted-foreground: 180, 192, 220; /* Texto más suave sobre elementos atenuados */
+    --accent: 86, 135, 238; /* Color de acento, un azul brillante que resalta pero sigue siendo armónico */
+    --accent-foreground: 25, 35, 58; /* Texto sobre el acento, azul muy oscuro para mantener el contraste */
+    --destructive: 220, 53, 69; /* Color destructivo, un rojo vivo para elementos críticos */
+    --destructive-foreground: 255, 255, 255; /* Texto sobre elementos destructivos, blanco para alta visibilidad */
+    --border: 85, 95, 120; /* Color de borde, azul grisáceo sutil para un borde elegante */
+    --input: 34, 40, 59; /* Fondo de los inputs, similar al fondo de tarjeta */
+    --ring: 86, 135, 238; /* Color del anillo de enfoque, azul brillante para destacar elementos activos */
+    --chart-1: 66, 135, 245; /* Gráfico 1, azul vibrante que destaca en los gráficos */
+    --chart-2: 102, 187, 106; /* Gráfico 2, verde fresco para balance */
+    --chart-3: 255, 193, 7; /* Gráfico 3, amarillo dorado para un toque llamativo */
+    --chart-4: 255, 87, 51; /* Gráfico 4, rojo cálido para contraste */
+    --chart-5: 124, 77, 255; /* Gráfico 5, morado brillante pero elegante */
+  }
+
+  .naturaleza {
+    --background: 32, 47, 36; /* Fondo verde oscuro, tono de bosque profundo */
+    --foreground: 144, 204, 41; /* Texto primario, un tono cálido y terroso */
+    --foreground-secondary: 160, 175, 100; /* Texto secundario, un verde oliva suave */
+    --card: 56, 74, 50; /* Fondo de las tarjetas, un verde oscuro más suave */
+    --card-foreground: 214, 224, 180; /* Texto dentro de las tarjetas, claro y cálido */
+    --popover: 44, 62, 47; /* Fondo del popover, un verde sutil y apagado */
+    --popover-foreground: 214, 224, 180; /* Texto del popover, cálido y claro */
+    --primary: 85, 155, 89; /* Color primario, verde brillante y refrescante */
+    --primary-foreground: 255, 255, 255; /* Texto sobre el primario, blanco para contraste */
+    --secondary: 71, 98, 71; /* Color secundario, verde más oscuro para equilibrio */
+    --secondary-foreground: 214, 224, 180; /* Texto sobre el color secundario, claro y nítido */
+    --muted: 112, 139, 96; /* Colores más suaves, un verde más apagado */
+    --muted-foreground: 214, 224, 180; /* Texto más suave sobre elementos atenuados */
+    --accent: 150, 168, 88; /* Color de acento, un amarillo mostaza cálido */
+    --accent-foreground: 44, 62, 47; /* Texto sobre el acento, un verde oscuro */
+    --destructive: 220, 53, 69; /* Color destructivo, un rojo brillante */
+    --destructive-foreground: 255, 255, 255; /* Texto sobre elementos destructivos, blanco */
+    --border: 85, 155, 89; /* Color de borde, verde brillante */
+    --input: 56, 74, 50; /* Fondo de los inputs, un verde sutil */
+    --ring: 85, 155, 89; /* Color del anillo de enfoque, verde brillante */
+    --chart-1: 255, 170, 51; /* Gráfico 1, naranja dorado */
+    --chart-2: 33, 150, 243; /* Gráfico 2, azul claro */
+    --chart-3: 76, 175, 80; /* Gráfico 3, verde suave */
+    --chart-4: 255, 87, 34; /* Gráfico 4, naranja vibrante */
+    --chart-5: 156, 39, 176; /* Gráfico 5, morado */
+  }
+
+  .retro {
+    --background: 19, 23, 36; /* Fondo oscuro, un azul casi negro */
+    --foreground: 107, 208, 232; /* Texto primario, blanco azulado brillante */
+    --foreground-secondary: 156, 203, 252; /* Texto secundario, un azul claro y neón */
+    --card: 30, 38, 60; /* Fondo de las tarjetas, azul oscuro con toque cibernético */
+    --card-foreground: 223, 249, 255; /* Texto dentro de las tarjetas, blanco brillante */
+    --popover: 13, 17, 30; /* Fondo del popover, azul oscuro */
+    --popover-foreground: 223, 249, 255; /* Texto del popover, claro */
+    --primary: 0, 255, 255; /* Color primario, cian brillante, tipo neón */
+    --primary-foreground: 0, 0, 0; /* Texto sobre el primario, negro para contraste */
+    --secondary: 255, 69, 0; /* Color secundario, naranja brillante tipo neón */
+    --secondary-foreground: 0, 0, 0; /* Texto sobre el secundario, negro */
+    --muted: 48, 57, 82; /* Colores más suaves, un tono de gris azulado oscuro */
+    --muted-foreground: 156, 203, 252; /* Texto suave sobre elementos atenuados */
+    --accent: 255, 20, 147; /* Color de acento, rosa neón vibrante */
+    --accent-foreground: 0, 0, 0; /* Texto sobre el acento, negro */
+    --destructive: 255, 0, 0; /* Color destructivo, rojo neón */
+    --destructive-foreground: 255, 255, 255; /* Texto sobre elementos destructivos, blanco */
+    --border: 12, 15, 25; /* Color de borde, un gris azulado oscuro */
+    --input: 30, 38, 60; /* Fondo de los inputs, gris oscuro con un toque de azul */
+    --ring: 0, 255, 255; /* Color del anillo de enfoque, cian brillante */
+    --chart-1: 0, 255, 255; /* Gráfico 1, cian brillante */
+    --chart-2: 255, 69, 0; /* Gráfico 2, naranja brillante */
+    --chart-3: 255, 20, 147; /* Gráfico 3, rosa neón */
+    --chart-4: 255, 0, 0; /* Gráfico 4, rojo neón */
+    --chart-5: 0, 255, 255; /* Gráfico 5, cian brillante */
+  }
+
+  .brillante {
+    --background: 255, 255, 255; /* Fondo blanco puro */
+    --foreground: 40, 40, 40; /* Texto primario, gris oscuro para contraste suave */
+    --foreground-secondary: 100, 100, 100; /* Texto secundario, gris medio */
+    --card: 225, 225, 225; /* Fondo de las tarjetas, blanco con toque de gris claro */
+    --card-foreground: 40, 40, 40; /* Texto dentro de las tarjetas, gris oscuro */
+    --popover: 240, 240, 240; /* Fondo del popover, gris muy claro */
+    --popover-foreground: 40, 40, 40; /* Texto del popover, gris oscuro */
+    --primary: 240, 240, 240; /* Color primario, blanco muy suave */
+    --primary-foreground: 40, 40, 40; /* Texto sobre el primario, gris oscuro */
+    --secondary: 235, 235, 235; /* Color secundario, blanco cálido */
+    --secondary-foreground: 40, 40, 40; /* Texto sobre el secundario, gris oscuro */
+    --muted: 220, 220, 220; /* Colores más suaves, gris claro */
+    --muted-foreground: 100, 100, 100; /* Texto suave sobre elementos atenuados */
+    --accent: 200, 200, 200; /* Color de acento, gris muy suave */
+    --accent-foreground: 40, 40, 40; /* Texto sobre el acento, gris oscuro */
+    --destructive: 210, 70, 70; /* Color destructivo, rojo suave */
+    --destructive-foreground: 40, 40, 40; /* Texto sobre elementos destructivos, gris oscuro */
+    --border: 220, 220, 220; /* Color de borde, gris muy claro */
+    --input: 250, 250, 250; /* Fondo de los inputs, blanco con un toque de gris */
+    --ring: 240, 240, 240; /* Color del anillo de enfoque, gris muy suave */
+    --chart-1: 200, 200, 200; /* Gráfico 1, gris suave */
+    --chart-2: 180, 180, 180; /* Gráfico 2, gris intermedio */
+    --chart-3: 160, 160, 160; /* Gráfico 3, gris claro */
+    --chart-4: 220, 220, 220; /* Gráfico 4, gris más claro */
+    --chart-5: 190, 190, 190; /* Gráfico 5, gris intermedio */
+  }
+
+  .apagado {
+    --background: 27, 27, 27; /* Fondo oscuro, gris muy oscuro */
+    --foreground: 211, 211, 211; /* Texto primario, gris claro */
+    --foreground-secondary: 150, 150, 150; /* Texto secundario, gris más suave */
+    --card: 45, 45, 45; /* Fondo de las tarjetas, gris muy oscuro con un toque grisáceo */
+    --card-foreground: 211, 211, 211; /* Texto dentro de las tarjetas, gris claro */
+    --popover: 24, 24, 24; /* Fondo del popover, gris oscuro */
+    --popover-foreground: 211, 211, 211; /* Texto del popover, gris claro */
+    --primary: 60, 60, 60; /* Color primario, gris oscuro neutro */
+    --primary-foreground: 211, 211, 211; /* Texto sobre el primario, gris claro */
+    --secondary: 40, 40, 40; /* Color secundario, gris aún más oscuro */
+    --secondary-foreground: 211, 211, 211; /* Texto sobre el secundario, gris claro */
+    --muted: 60, 60, 60; /* Colores más suaves, gris oscuro */
+    --muted-foreground: 150, 150, 150; /* Texto suave sobre elementos atenuados */
+    --accent: 60, 60, 60; /* Color de acento, gris oscuro */
+    --accent-foreground: 211, 211, 211; /* Texto sobre el acento, gris claro */
+    --destructive: 100, 100, 100; /* Color destructivo, gris oscuro */
+    --destructive-foreground: 211, 211, 211; /* Texto sobre elementos destructivos, gris claro */
+    --border: 40, 40, 40; /* Color de borde, gris más oscuro */
+    --input: 35, 35, 35; /* Fondo de los inputs, gris casi negro */
+    --ring: 60, 60, 60; /* Color del anillo de enfoque, gris oscuro */
+    --chart-1: 100, 100, 100; /* Gráfico 1, gris oscuro */
+    --chart-2: 50, 50, 50; /* Gráfico 2, gris más oscuro */
+    --chart-3: 75, 75, 75; /* Gráfico 3, gris intermedio */
+    --chart-4: 90, 90, 90; /* Gráfico 4, gris más suave */
+    --chart-5: 60, 60, 60; /* Gráfico 5, gris oscuro */
+  }
 }
 
 @layer base {

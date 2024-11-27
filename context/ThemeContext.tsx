@@ -29,7 +29,7 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
     });
 
     useEffect(() => {
-        document.documentElement.classList.remove('claro', 'oscuro'); // remove all classes
+        document.documentElement.classList.remove('claro', 'oscuro', 'noche', 'naturaleza', 'retro', 'brillante', 'apagado'); // remove all classes
         document.documentElement.classList.add(theme); // add theme class
         localStorage.setItem('theme', theme); // save the theme in the localStorage
     }, [theme]);

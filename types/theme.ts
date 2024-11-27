@@ -1,1 +1,1 @@
-export type Theme = 'claro' | 'oscuro';
+export type Theme = 'claro' | 'oscuro' | 'noche' | 'naturaleza' | 'retro' | 'brillante' | 'apagado';
