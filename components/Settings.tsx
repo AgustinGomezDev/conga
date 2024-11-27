@@ -16,7 +16,7 @@ const Settings = () => {
     return (
         <Dialog>
             <DialogTrigger>
-                <SettingsIcon className="size-6" />
+                <SettingsIcon className="size-6 hover:rotate-180 transition-all hover:text-primary" />
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
