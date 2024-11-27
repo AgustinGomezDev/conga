@@ -35,7 +35,7 @@ body {
     --radius: 0.5rem;
   }
 
-  .light {
+  .claro {
     --background: 240, 230, 210; /* Color de fondo claro */
     --foreground: 142, 86, 46; /* Texto primario, cálido y destacado */
     --foreground-secondary: 93, 64, 55; /* Texto secundario, color más suave */
@@ -53,8 +53,8 @@ body {
     --accent-foreground: 31, 41, 55; /* Texto sobre el acento, contraste con fondo oscuro */
     --destructive: 211, 47, 47; /* Color destructivo, rojo suave */
     --destructive-foreground: 255, 255, 255; /* Texto sobre elementos destructivos, blanco para alto contraste */
-    --border: 206, 212, 218; /* Color de borde, gris suave */
-    --input: 255, 255, 255; /* Fondo de los inputs, blanco */
+    --border: 142, 86, 46; /* Color de borde, gris suave */
+    --input: 142, 86, 46; /* Fondo de los inputs, blanco */
     --ring: 142, 86, 46; /* Color del anillo de enfoque, similar al texto primario */
     --chart-1: 255, 87, 51; /* Gráfico 1, color cálido fuerte */
     --chart-2: 52, 168, 83; /* Gráfico 2, verde vibrante */
@@ -63,13 +63,13 @@ body {
     --chart-5: 156, 39, 176; /* Gráfico 5, morado vibrante */
   }
 
-  .dark {
+  .oscuro {
     --background: 54, 45, 28; /* Fondo oscuro, profundo pero suave para el dark mode */
     --foreground: 219, 176, 123; /* Texto primario, un tono cálido y brillante que destaca sobre fondo oscuro */
     --foreground-secondary: 207, 128, 72; /* Texto secundario, más suave pero con un contraste sutil */
     --card: 61, 50, 30; /* Fondo de las tarjetas, un gris oscuro con un toque de azul para un contraste elegante */
     --card-foreground: 240, 230, 210; /* Texto dentro de las tarjetas, cálido y claro para un buen contraste */
-    --popover: 44, 62, 80; /* Fondo del popover, un tono oscuro pero ligeramente más suave que el fondo general */
+    --popover: 54, 45, 28; /* Fondo del popover, un tono oscuro pero ligeramente más suave que el fondo general */
     --popover-foreground: 240, 230, 210; /* Texto del popover, el mismo tono claro de las tarjetas para uniformidad */
     --primary: 142, 86, 46; /* Color primario, cálido y terroso, con un buen contraste sobre el fondo oscuro */
     --primary-foreground: 255, 255, 255; /* Texto sobre el primario, blanco brillante para asegurar legibilidad */
@@ -81,8 +81,8 @@ body {
     --accent-foreground: 31, 41, 55; /* Texto sobre el acento, oscuro para mantener el contraste */
     --destructive: 211, 47, 47; /* Color destructivo, un rojo intenso pero controlado */
     --destructive-foreground: 255, 255, 255; /* Texto sobre elementos destructivos, blanco para un contraste fuerte */
-    --border: 93, 103, 121; /* Color de borde, similar a los elementos atenuados para dar un borde sutil */
-    --input: 55, 65, 81; /* Fondo de los inputs, gris oscuro similar al fondo de tarjeta */
+    --border: 219, 176, 123; /* Color de borde, similar a los elementos atenuados para dar un borde sutil */
+    --input: 219, 176, 123; /* Fondo de los inputs, gris oscuro similar al fondo de tarjeta */
     --ring: 142, 86, 46; /* Color del anillo de enfoque, cálido para resaltar sobre el fondo oscuro */
     --chart-1: 255, 87, 51; /* Gráfico 1, un color rojo suave pero brillante para destacar */
     --chart-2: 52, 168, 83; /* Gráfico 2, verde fresco para proporcionar un contraste balanceado */

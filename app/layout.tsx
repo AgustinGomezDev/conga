@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Onest } from 'next/font/google'
 import "./globals.css";
-import GithubLink from "@/components/GithubLink";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const onest = Onest({
   subsets: ['latin'],
@@ -20,13 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className="claro">
       <body
-        className={`antialiased light overflow-x-hidden ${onest.className} h-screen`}
+        className={`antialiased overflow-x-hidden ${onest.className} h-screen`}
       >
-        {/* <GithubLink /> */}
-        {children}
-        <Footer />
+        <ThemeProvider>
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
