@@ -19,20 +19,33 @@ function useTheme() {
 }
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
+    const [mounted, setMounted] = useState(false);
     const [theme, setTheme] = useState<Theme>(() => {
-        const savedTheme = localStorage.getItem('theme') as Theme;
-        if (savedTheme) {
-            return savedTheme;
+
+        if (typeof window !== 'undefined') {
+            const savedTheme = localStorage.getItem('theme') as Theme;
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro';
         }
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return prefersDark ? 'oscuro' : 'claro';
+        return 'claro';
     });
 
     useEffect(() => {
-        document.documentElement.classList.remove('claro', 'oscuro', 'noche', 'naturaleza', 'retro', 'brillante', 'apagado'); // remove all classes
-        document.documentElement.classList.add(theme); // add theme class
-        localStorage.setItem('theme', theme); // save the theme in the localStorage
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        document.documentElement.classList.remove('claro', 'oscuro', 'noche', 'naturaleza', 'retro', 'brillante', 'apagado');
+        document.documentElement.classList.add(theme);
+        localStorage.setItem('theme', theme);
     }, [theme]);
+
+    // if the component isn't mounted the app is not rendered
+    if (!mounted) {
+        return null;
+    }
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
