@@ -128,7 +128,7 @@ const Rules = () => {
                 <p>Después de hacer una de estas acciones, el jugador debe descartar una carta que no necesite para quedarse nuevamente con 7 cartas en la mano.</p>
             </article>
             <article id='corte'>
-                <RulesTitle>Corte</RulesTitle>
+                <RulesTitle margin={true}>Corte</RulesTitle>
                 <div className='space-y-2'>
                     <p>Para cortar, un jugador debe haber combinado 4, 5, 6 o las 7 cartas de su mano, asegurándose de que las cartas que le queden sin combinar no sumen más de 5 puntos.</p>
                     <p>Si decide cortar (lo cual no es obligatorio), coloca su carta de descarte boca abajo en lugar de boca arriba, señalando que el juego ha terminado. Después de esto, debe mostrar sus combinaciones antes de sumar los puntos.</p>
@@ -138,7 +138,7 @@ const Rules = () => {
                 </div>
             </article>
             <article id='acomodar-cartas'>
-                <RulesTitle>Acomodar cartas</RulesTitle>
+                <RulesTitle margin={true}>Acomodar cartas</RulesTitle>
                 <div className='space-y-2'>
                     <p>Al cerrar, los jugadores van mostrando sus combinaciones uno por uno. Los demás tienen la oportunidad de descartar algunas de sus cartas combinándolas con las jugadas de los otros jugadores, lo que les permite reducir sus puntos finales.</p>
                     <p>Sin embargo, esta opción no está disponible si el jugador que cerró lo hizo con -10 puntos (ya que no le quedan cartas).</p>
