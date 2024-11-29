@@ -105,7 +105,7 @@ const Bento = () => {
                     <Link
                         href={card.link}
                         key={card.id}
-                        className={`rounded-2xl shadow-lg min-h-44 p-4 bg-card transition-transform`}
+                        className={`rounded-2xl shadow-lg min-h-44 p-4 bg-card hover:bg-accent/10 transition-all`}
                         style={{
                             gridColumnStart: card.colStart,
                             gridColumnEnd: card.colEnd,
