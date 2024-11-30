@@ -3,6 +3,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import {
     Drawer,
+    DrawerClose,
     DrawerContent,
     DrawerDescription,
     DrawerHeader,
@@ -211,14 +212,16 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                 }
                 <DrawerContent className='border-accent'>
                     <div className="w-full relative">
-                        <Button
-                            className="text-foreground border-accent text-md px-8 hover:text-accent hover:bg-foreground absolute top-0 right-0 mr-10"
-                            size='xl'
-                            variant='outline'
-                            onClick={handleEndGame}
-                        >
-                            Cortar
-                        </Button>
+                        <DrawerClose asChild>
+                            <Button
+                                className="text-foreground border-accent text-md px-8 hover:text-accent hover:bg-foreground absolute top-0 right-0 mr-10"
+                                size='xl'
+                                variant='outline'
+                                onClick={handleEndGame}
+                            >
+                                Cortar
+                            </Button>
+                        </DrawerClose>
                         <DrawerHeader>
                             <DrawerTitle>Ordena tus cartas para poder cortar</DrawerTitle>
                             <DrawerDescription>Carta con la que se corta, carta sobrante y combinaciones de juegos.</DrawerDescription>
