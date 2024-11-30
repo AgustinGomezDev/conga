@@ -137,7 +137,6 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
 
         if (leftOverCards || combinedCards) {
             onOtherPlayersCards(leftOverCards, combinedCards)
-            setIsOpen(!isOpen)
             handleDrawerClose()
         }
     }
@@ -149,6 +148,10 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
         !combinedCards[0].includes(card) &&
         !combinedCards[1].includes(card)
     );
+
+    if(gameState.error === 'Cartas enviadas'){
+        return null;
+    }
 
     if (gameState.endGameModal) {
         return (
