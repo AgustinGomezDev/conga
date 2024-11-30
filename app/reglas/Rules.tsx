@@ -37,7 +37,7 @@ const Rules = () => {
                     Sin embargo, también se puede jugar con 48 cartas (añadiendo los ochos y nueves) o incluso con 50 cartas si incluyes dos comodines (en este caso se utiliza la baraja con 50 cartas).
                 </p>
                 <RulesSubtitle margin={true} id="valor-de-las-cartas">Valor de las cartas</RulesSubtitle>
-                <p>En algunas barajas, las cartas como el rey, el caballo o la sota no tienen un número que les de su valor (en este aplicación no es el caso). El comodín puede tener 2 valores: 25 puntos o 50 puntos, aquí el comodín equivale a 50.</p>
+                <p>En algunas barajas, las cartas como el rey, el caballo o la sota no tienen un número que les de su valor (en este aplicación no es el caso). El comodín puede tener 2 valores: 25 puntos o 50 puntos (en esta aplicación equivale a 25 puntos).</p>
                 <div className='mt-2 justify-center items-center flex gap-4'>
                     <div className='relative w-40'>
                         <div className='bg-gradient-to-t from-black/80 via-black/60 to-black/20 absolute top-0 left-0 w-full h-full rounded-md z-10'></div>
