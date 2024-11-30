@@ -4,6 +4,8 @@ import RulesTitle from './RulesTitle';
 import RulesSubtitle from './RulesSubtitle';
 
 const Rules = () => {
+    const shadowStyle = `shadow-[10px_5px_40px_-5px_rgba(0,0,0,1)]`
+
     return (
         <section className="rounded-md px-2 py-4 text-md text-foregroundSecondary">
             <article id='descripcion'>
@@ -68,13 +70,13 @@ const Rules = () => {
                 <div className='flex justify-between items-center'>
                     <div className='flex mx-8'>
                         <img className='w-40 rounded-md -mx-8' src="/cards/basto/4.webp" alt="Carta comodín" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-8' src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-8' src="/cards/basto/6.webp" alt="Carta comodín" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-8 ${shadowStyle}`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-8 shadow ${shadowStyle}`} src="/cards/basto/6.webp" alt="Carta comodín" loading='lazy' />
                     </div>
                     <div className='flex mx-8'>
                         <img className='w-40 rounded-md -mx-8' src="/cards/copa/8.webp" alt="Carta comodín" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-8' src="/cards/espada/8.webp" alt="Carta comodín" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-8' src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-8 shadow ${shadowStyle}`} src="/cards/espada/8.webp" alt="Carta comodín" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-8 shadow ${shadowStyle}`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
                     </div>
                 </div>
                 <RulesSubtitle margin={true} id="posibles-combinaciones">Posibles combinaciones <span className='text-lg text-accent'>(ligues)</span></RulesSubtitle>
@@ -88,30 +90,30 @@ const Rules = () => {
                         <p className='text-center font-bold'>Escalera</p>
                         <div className='flex px-12'>
                             <img className='w-40 rounded-md -mx-12' src="/cards/oro/2.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className='w-40 rounded-md -mx-12' src="/cards/oro/3.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className='w-40 rounded-md -mx-12' src="/cards/oro/4.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/oro/3.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/oro/4.webp" alt="Carta caballo de copa" loading='lazy' />
                         </div>
                     </div>
                     <div>
                         <p className='text-center font-bold'>Pie o trío</p>
                         <div className='flex px-12'>
                             <img className='w-40 rounded-md -mx-12' src="/cards/basto/7.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className='w-40 rounded-md -mx-12' src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className='w-40 rounded-md -mx-12' src="/cards/copa/7.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className='w-40 rounded-md -mx-12' src="/cards/oro/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/copa/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/oro/7.webp" alt="Carta caballo de copa" loading='lazy' />
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className='mt-4'>
                     <p className='text-center font-bold'>Conga</p>
                     <div className='flex justify-center items-center'>
                         <img className='w-40 rounded-md -mx-12' src="/cards/espada/1.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-12' src="/cards/espada/2.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-12' src="/cards/espada/3.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-12' src="/cards/espada/4.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-12' src="/cards/espada/5.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-12' src="/cards/espada/6.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className='w-40 rounded-md -mx-12' src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/2.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/3.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/4.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/5.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/6.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
                     </div>
                     <p className='text-center'>Si intentas hacer una Conga no válida, se te restarán 25 puntos como penalización.</p>
                 </div>
