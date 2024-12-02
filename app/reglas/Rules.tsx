@@ -4,7 +4,6 @@ import RulesTitle from './RulesTitle';
 import RulesSubtitle from './RulesSubtitle';
 
 const Rules = () => {
-    const shadowStyle = `shadow-[10px_5px_40px_-5px_rgba(0,0,0,1)]`
 
     return (
         <section className="rounded-md px-2 py-4 text-md text-foregroundSecondary">
@@ -56,7 +55,7 @@ const Rules = () => {
                     </div>
                     <div className='relative w-40'>
                         <div className='bg-gradient-to-t from-black/80 via-black/60 to-black/20 absolute top-0 left-0 w-full h-full rounded-md z-10'></div>
-                        <span className='absolute w-40 text-center z-20 text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>Comodín 50 puntos</span>
+                        <span className='absolute w-40 text-center z-20 text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>Comodín 25 puntos</span>
                         <img className='w-40 rounded-md' src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
                     </div>
                 </div>
@@ -69,14 +68,26 @@ const Rules = () => {
                 <p className='mb-2'>El comodín puede ser colocado al inicio de la combinación, al final o entre medio.</p>
                 <div className='flex justify-between items-center'>
                     <div className='flex mx-8'>
-                        <img className='w-40 rounded-md -mx-8' src="/cards/basto/4.webp" alt="Carta comodín" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-8 ${shadowStyle}`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-8 shadow ${shadowStyle}`} src="/cards/basto/6.webp" alt="Carta comodín" loading='lazy' />
+                        <span className='shadowSpanStyle'>
+                            <img className='w-40 rounded-md' src="/cards/basto/4.webp" alt="Carta comodín" loading='lazy' />
+                        </span>
+                        <span className='shadowSpanStyle'>
+                            <img className={`w-40 rounded-md`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                        </span>
+                        <span className='-mx-8 z-50'>
+                            <img className={`w-40 rounded-md`} src="/cards/basto/6.webp" alt="Carta comodín" loading='lazy' />
+                        </span>
                     </div>
                     <div className='flex mx-8'>
-                        <img className='w-40 rounded-md -mx-8' src="/cards/copa/8.webp" alt="Carta comodín" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-8 shadow ${shadowStyle}`} src="/cards/espada/8.webp" alt="Carta comodín" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-8 shadow ${shadowStyle}`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                        <span className='shadowSpanStyle'>
+                            <img className='w-40 rounded-md' src="/cards/copa/8.webp" alt="Carta comodín" loading='lazy' />
+                        </span>
+                        <span className='shadowSpanStyle'>
+                            <img className={`w-40 rounded-md`} src="/cards/espada/8.webp" alt="Carta comodín" loading='lazy' />
+                        </span>
+                        <span className='-mx-8 z-50'>
+                            <img className={`w-40 rounded-md`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                        </span>
                     </div>
                 </div>
                 <RulesSubtitle margin={true} id="posibles-combinaciones">Posibles combinaciones <span className='text-lg text-accent'>(ligues)</span></RulesSubtitle>
@@ -85,37 +96,65 @@ const Rules = () => {
                     <li><strong>Pie o trío</strong>: tres o cuatro cartas con el mismo número.</li>
                     <li><strong>Conga</strong>: siete cartas consecutivas del mismo palo. Si logras una conga, ganas automáticamente la partida, pero ojo: no puedes usar comodines para formarla.</li>
                 </ul>
-                <div className='px-8 mt-4 rounded-md flex items-center justify-center gap-10'>
+                <div className='px-8 mt-4 rounded-md flex items-center justify-center gap-12'>
                     <div>
                         <p className='text-center font-bold'>Escalera</p>
-                        <div className='flex px-12'>
-                            <img className='w-40 rounded-md -mx-12' src="/cards/oro/2.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/oro/3.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/oro/4.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <div className='flex '>
+                            <span className='shadowSpanStyle'>
+                                <img className='w-40 rounded-md' src="/cards/oro/2.webp" alt="Carta caballo de copa" loading='lazy' />
+                            </span>
+                            <span className='shadowSpanStyle'>
+                                <img className={`w-40 rounded-md`} src="/cards/oro/3.webp" alt="Carta caballo de copa" loading='lazy' />
+                            </span>
+                            <span className='-mx-8 z-50'>
+                                <img className={`w-40 rounded-md`} src="/cards/oro/4.webp" alt="Carta caballo de copa" loading='lazy' />
+                            </span>
                         </div>
                     </div>
                     <div>
                         <p className='text-center font-bold'>Pie o trío</p>
                         <div className='flex px-12'>
-                            <img className='w-40 rounded-md -mx-12' src="/cards/basto/7.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/copa/7.webp" alt="Carta caballo de copa" loading='lazy' />
-                            <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/oro/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <span className='shadowSpanStyle'>
+                                <img className='w-40 rounded-md' src="/cards/basto/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            </span>
+                            <span className='shadowSpanStyle'>
+                                <img className={`w-40 rounded-md`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            </span>
+                            <span className='shadowSpanStyle'>
+                                <img className={`w-40 rounded-md`} src="/cards/copa/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            </span>
+                            <span className='z-50 -mx-8'>
+                                <img className={`w-40 rounded-md`} src="/cards/oro/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div className='mt-4'>
                     <p className='text-center font-bold'>Conga</p>
                     <div className='flex justify-center items-center'>
-                        <img className='w-40 rounded-md -mx-12' src="/cards/espada/1.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/2.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/3.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/4.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/5.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/6.webp" alt="Carta caballo de copa" loading='lazy' />
-                        <img className={`w-40 rounded-md -mx-12 shadow ${shadowStyle}`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <span className='shadowSpanStyle'>
+                            <img className='w-40 rounded-md' src="/cards/espada/1.webp" alt="Carta caballo de copa" loading='lazy' />
+                        </span>
+                        <span className='shadowSpanStyle'>
+                            <img className={`w-40 rounded-md`} src="/cards/espada/2.webp" alt="Carta caballo de copa" loading='lazy' />
+                        </span>
+                        <span className='shadowSpanStyle'>
+                            <img className={`w-40 rounded-md`} src="/cards/espada/3.webp" alt="Carta caballo de copa" loading='lazy' />
+                        </span>
+                        <span className='shadowSpanStyle'>
+                            <img className={`w-40 rounded-md`} src="/cards/espada/4.webp" alt="Carta caballo de copa" loading='lazy' />
+                        </span>
+                        <span className='shadowSpanStyle'>
+                            <img className={`w-40 rounded-md`} src="/cards/espada/5.webp" alt="Carta caballo de copa" loading='lazy' />
+                        </span>
+                        <span className='shadowSpanStyle'>
+                            <img className={`w-40 rounded-md`} src="/cards/espada/6.webp" alt="Carta caballo de copa" loading='lazy' />
+                        </span>
+                        <span className='-mx-8 z-50'>
+                            <img className={`w-40 rounded-md`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                        </span>
                     </div>
-                    <p className='text-center'>Si intentas hacer una Conga no válida, se te restarán 25 puntos como penalización.</p>
+                    <p className='text-center mt-2'>Si intentas hacer una Conga no válida, se te restarán 25 puntos como penalización.</p>
                 </div>
             </article>
             <article id="desarrollo-del-juego">
