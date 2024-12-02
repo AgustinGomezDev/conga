@@ -48,8 +48,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
         }
     }
 
-    const handleCardEvent = (e: React.MouseEvent<HTMLInputElement>) => {
-        const cardId = Number(e.currentTarget.id);
+    const handleCardEvent = (cardId: number) => {
         const card = gameState.hand.find(element => element.id === cardId)
         if (card) setSelectedCard(card)
     }
@@ -185,7 +184,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                                 </div>
                             </div>
                             <div className='p-4 w-full flex justify-center items-center'>
-                                {gameState ? gameState.hand && <PlayerHand cards={filteredHand} mode='ending' onPlayCard={handleCardEvent} /> : null}
+                                {gameState ? gameState.hand && <PlayerHand cards={filteredHand} mode='ending' onPlayCard={(cardId) => handleCardEvent(cardId)} /> : null}
                             </div>
                         </div>
                     </div>
@@ -243,7 +242,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
                                 </div>
                             </div>
                             <div className='p-4 w-full flex justify-center items-center'>
-                                {gameState ? gameState.hand && <PlayerHand cards={filteredHand} mode='ending' onPlayCard={handleCardEvent} /> : null}
+                                {gameState ? gameState.hand && <PlayerHand cards={filteredHand} mode='ending' onPlayCard={(cardId) => handleCardEvent(cardId)} /> : null}
                             </div>
                         </div>
                     </div>

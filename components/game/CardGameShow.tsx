@@ -51,6 +51,7 @@ const CardGameShow = ({ cards }: CardGameShowProps) => {
                                     key={index}
                                     card={card}
                                     cn={
+                                        playerCards.leftOverCards &&
                                         playerCards.leftOverCards.length > 1
                                             ? index !== 0
                                                 ? '-mx-16'
