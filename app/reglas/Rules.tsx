@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import RulesTitle from './RulesTitle';
 import RulesSubtitle from './RulesSubtitle';
+import Image from 'next/image';
 
 const Rules = () => {
 
@@ -41,22 +42,22 @@ const Rules = () => {
                     <div className='relative w-40'>
                         <div className='bg-gradient-to-t from-black/80 via-black/60 to-black/20 absolute top-0 left-0 w-full h-full rounded-md z-10'></div>
                         <span className='absolute w-40 text-center z-20 text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>Rey 12 puntos</span>
-                        <img className='w-40 rounded-md' src="/cards/espada/12.webp" alt="Carta rey de espada" loading='lazy' />
+                        <Image width={160} height={247} className='w-40 rounded-md' src="/cards/espada/12.webp" alt="Carta rey de espada" loading='lazy' />
                     </div>
                     <div className='relative w-40'>
                         <div className='bg-gradient-to-t from-black/80 via-black/60 to-black/20 absolute top-0 left-0 w-full h-full rounded-md z-10'></div>
                         <span className='absolute w-40 text-center z-20 text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>Caballo 11 puntos</span>
-                        <img className='w-40 rounded-md' src="/cards/copa/11.webp" alt="Carta caballo de copa" loading='lazy' />
+                        <Image width={160} height={247} className='w-40 rounded-md' src="/cards/copa/11.webp" alt="Carta caballo de copa" loading='lazy' />
                     </div>
                     <div className='relative w-40'>
                         <div className='bg-gradient-to-t from-black/80 via-black/60 to-black/20 absolute top-0 left-0 w-full h-full rounded-md z-10'></div>
                         <span className='absolute w-40 text-center z-20 text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>Sota 10 puntos</span>
-                        <img className='w-40 rounded-md' src="/cards/oro/10.webp" alt="Carta sota de oro" loading='lazy' />
+                        <Image width={160} height={247} className='w-40 rounded-md' src="/cards/oro/10.webp" alt="Carta sota de oro" loading='lazy' />
                     </div>
                     <div className='relative w-40'>
                         <div className='bg-gradient-to-t from-black/80 via-black/60 to-black/20 absolute top-0 left-0 w-full h-full rounded-md z-10'></div>
                         <span className='absolute w-40 text-center z-20 text-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>Comodín 25 puntos</span>
-                        <img className='w-40 rounded-md' src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                        <Image width={160} height={247} className='w-40 rounded-md' src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
                     </div>
                 </div>
                 <RulesSubtitle margin={true} id="comodines">Comodines</RulesSubtitle>
@@ -69,24 +70,24 @@ const Rules = () => {
                 <div className='flex justify-between items-center'>
                     <div className='flex mx-8'>
                         <span className='shadowSpanStyle'>
-                            <img className='w-40 rounded-md' src="/cards/basto/4.webp" alt="Carta comodín" loading='lazy' />
+                            <Image width={160} height={247} className='w-40 rounded-md' src="/cards/basto/4.webp" alt="Carta comodín" loading='lazy' />
                         </span>
                         <span className='shadowSpanStyle'>
-                            <img className={`w-40 rounded-md`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
                         </span>
                         <span className='-mx-8 z-50'>
-                            <img className={`w-40 rounded-md`} src="/cards/basto/6.webp" alt="Carta comodín" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/basto/6.webp" alt="Carta comodín" loading='lazy' />
                         </span>
                     </div>
                     <div className='flex mx-8'>
                         <span className='shadowSpanStyle'>
-                            <img className='w-40 rounded-md' src="/cards/copa/8.webp" alt="Carta comodín" loading='lazy' />
+                            <Image width={160} height={247} className='w-40 rounded-md' src="/cards/copa/8.webp" alt="Carta comodín" loading='lazy' />
                         </span>
                         <span className='shadowSpanStyle'>
-                            <img className={`w-40 rounded-md`} src="/cards/espada/8.webp" alt="Carta comodín" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/8.webp" alt="Carta comodín" loading='lazy' />
                         </span>
                         <span className='-mx-8 z-50'>
-                            <img className={`w-40 rounded-md`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/otra/comodin.webp" alt="Carta comodín" loading='lazy' />
                         </span>
                     </div>
                 </div>
@@ -101,13 +102,13 @@ const Rules = () => {
                         <p className='text-center font-bold'>Escalera</p>
                         <div className='flex '>
                             <span className='shadowSpanStyle'>
-                                <img className='w-40 rounded-md' src="/cards/oro/2.webp" alt="Carta caballo de copa" loading='lazy' />
+                                <Image width={160} height={247} className='w-40 rounded-md' src="/cards/oro/2.webp" alt="Carta caballo de copa" loading='lazy' />
                             </span>
                             <span className='shadowSpanStyle'>
-                                <img className={`w-40 rounded-md`} src="/cards/oro/3.webp" alt="Carta caballo de copa" loading='lazy' />
+                                <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/oro/3.webp" alt="Carta caballo de copa" loading='lazy' />
                             </span>
                             <span className='-mx-8 z-50'>
-                                <img className={`w-40 rounded-md`} src="/cards/oro/4.webp" alt="Carta caballo de copa" loading='lazy' />
+                                <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/oro/4.webp" alt="Carta caballo de copa" loading='lazy' />
                             </span>
                         </div>
                     </div>
@@ -115,16 +116,16 @@ const Rules = () => {
                         <p className='text-center font-bold'>Pie o trío</p>
                         <div className='flex px-12'>
                             <span className='shadowSpanStyle'>
-                                <img className='w-40 rounded-md' src="/cards/basto/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                                <Image width={160} height={247} className='w-40 rounded-md' src="/cards/basto/7.webp" alt="Carta caballo de copa" loading='lazy' />
                             </span>
                             <span className='shadowSpanStyle'>
-                                <img className={`w-40 rounded-md`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                                <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
                             </span>
                             <span className='shadowSpanStyle'>
-                                <img className={`w-40 rounded-md`} src="/cards/copa/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                                <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/copa/7.webp" alt="Carta caballo de copa" loading='lazy' />
                             </span>
                             <span className='z-50 -mx-8'>
-                                <img className={`w-40 rounded-md`} src="/cards/oro/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                                <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/oro/7.webp" alt="Carta caballo de copa" loading='lazy' />
                             </span>
                         </div>
                     </div>
@@ -133,25 +134,25 @@ const Rules = () => {
                     <p className='text-center font-bold'>Conga</p>
                     <div className='flex justify-center items-center'>
                         <span className='shadowSpanStyle'>
-                            <img className='w-40 rounded-md' src="/cards/espada/1.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <Image width={160} height={247} className='w-40 rounded-md' src="/cards/espada/1.webp" alt="Carta caballo de copa" loading='lazy' />
                         </span>
                         <span className='shadowSpanStyle'>
-                            <img className={`w-40 rounded-md`} src="/cards/espada/2.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/2.webp" alt="Carta caballo de copa" loading='lazy' />
                         </span>
                         <span className='shadowSpanStyle'>
-                            <img className={`w-40 rounded-md`} src="/cards/espada/3.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/3.webp" alt="Carta caballo de copa" loading='lazy' />
                         </span>
                         <span className='shadowSpanStyle'>
-                            <img className={`w-40 rounded-md`} src="/cards/espada/4.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/4.webp" alt="Carta caballo de copa" loading='lazy' />
                         </span>
                         <span className='shadowSpanStyle'>
-                            <img className={`w-40 rounded-md`} src="/cards/espada/5.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/5.webp" alt="Carta caballo de copa" loading='lazy' />
                         </span>
                         <span className='shadowSpanStyle'>
-                            <img className={`w-40 rounded-md`} src="/cards/espada/6.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/6.webp" alt="Carta caballo de copa" loading='lazy' />
                         </span>
                         <span className='-mx-8 z-50'>
-                            <img className={`w-40 rounded-md`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
+                            <Image width={160} height={247} className={`w-40 rounded-md`} src="/cards/espada/7.webp" alt="Carta caballo de copa" loading='lazy' />
                         </span>
                     </div>
                     <p className='text-center mt-2'>Si intentas hacer una Conga no válida, se te restarán 25 puntos como penalización.</p>
