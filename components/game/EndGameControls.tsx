@@ -48,8 +48,9 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
         }
     }
 
-    const handleCardEvent = (e: any) => {
-        const card = gameState.hand.find(element => element.id === e)
+    const handleCardEvent = (e: React.MouseEvent<HTMLInputElement>) => {
+        const cardId = Number(e.currentTarget.id);
+        const card = gameState.hand.find(element => element.id === cardId)
         if (card) setSelectedCard(card)
     }
 
@@ -60,7 +61,7 @@ const EndGameControls: FC<EndGameProps> = ({ gameState, onEndGame, onOtherPlayer
         }
     }
 
-    const handleCardSlot = (e: any) => {
+    const handleCardSlot = (e: React.MouseEvent<HTMLDivElement>) => {
         switch (e.currentTarget.id) {
             case 'closingCard':
                 if (closingCard && selectedCard === null) {

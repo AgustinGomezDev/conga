@@ -23,9 +23,8 @@ export function ThemeToggler() {
     return (
         <div className="flex gap-4">
             {themes.map((t) => (
-                <div className='flex flex-col items-center gap-2'>
+                <div key={t} className='flex flex-col items-center gap-2'>
                     <button
-                        key={t}
                         onClick={() => handleThemeChange(t)}
                         className={`size-12 rounded-full transition-transform hover:scale-110 p-0 ${theme === t && 'ring-2 ring-accent'} bg-gradient-to-br ${themeGradients[t]}`}
                         aria-label={`Cambiar tema a ${t}`}

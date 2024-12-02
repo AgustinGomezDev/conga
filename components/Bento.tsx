@@ -1,11 +1,11 @@
 import Link from "next/link"
 import MultiplayerCard from "./MultiplayerCard"
 import { ProfileIcon } from "@/assets/icons/ui/ProfileIcon"
-import { PlayersIcon } from "@/assets/icons/ui/PlayersIcon"
+// import { PlayersIcon } from "@/assets/icons/ui/PlayersIcon"
 import { RankingIcon } from "@/assets/icons/ui/RankingIcon"
 import { RulesIcon } from "@/assets/icons/ui/RulesIcon"
 import { SingleplayerIcon } from "@/assets/icons/ui/SingleplayerIcon"
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 
 const CARDS = [
     {

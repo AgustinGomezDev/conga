@@ -174,7 +174,7 @@ const Rules = () => {
                 <div className='space-y-2'>
                     <p>Para cortar, un jugador debe haber combinado 4, 5, 6 o las 7 cartas de su mano, asegurándose de que las cartas que le queden sin combinar no sumen más de 5 puntos.</p>
                     <p>Si decide cortar (lo cual no es obligatorio), coloca su carta de descarte boca abajo en lugar de boca arriba, señalando que el juego ha terminado. Después de esto, debe mostrar sus combinaciones antes de sumar los puntos.</p>
-                    <p>Cuando se cierra la mano, todos los jugadores cuentan los puntos de las cartas que no lograron combinar, incluyendo el que cortó. Estas puntuaciones se anotan en el marcador. Si el jugador que cierra logra combinar todas sus cartas (no le queda ninguna carta a la hora de cortar), se le descuentan 10 puntos como recompensa (también es llamado "cortar menos diez").</p>
+                    <p>Cuando se cierra la mano, todos los jugadores cuentan los puntos de las cartas que no lograron combinar, incluyendo el que cortó. Estas puntuaciones se anotan en el marcador. Si el jugador que cierra logra combinar todas sus cartas (no le queda ninguna carta a la hora de cortar), se le descuentan 10 puntos como recompensa (también es llamado &quot;cortar menos diez&quot;).</p>
                     <p>El juego termina cuando solo queda un jugador sin superar el límite de puntos (normalmente 100). Este jugador es el ganador. Sin embargo, si el jugador que cortó supera el límite y los demás también lo hacen, el triunfo se otorga al jugador que no cortó.</p>
                     <p>Al cortar, un jugador puede quedarse con más de una carta, pero la suma de estas no puede exceder los 5 puntos.</p>
                 </div>
